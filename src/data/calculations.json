@@ -1,0 +1,57 @@
+[
+    {
+      "id": 1,
+      "title": "İdeal Kilo Hesaplama",
+      "description": "İdeal kilo hesaplama hakkında bilgi edinin. İdeal kilo nedir, İdeal kilo nasıl hesaplanır ve ideal kilo kaç olmalıdır?",
+      "image": "/calculations/ideal-kilo-hesaplama.png",
+      "contentText": "<p>İdeal kilo, bir kişinin sağlıklı bir vücut ağırlığına sahip olması için olması gereken kilo aralığıdır. İdeal kilo, kişinin boy, cinsiyet, yaş ve genel sağlık durumu gibi faktörlere bağlı olarak değişebilir. İdeal kilo hesaplaması, vücut kitle indeksi (VKİ) adı verilen bir formül kullanılarak yapılır.</p><p><strong>Vücut Kitle İndeksi (VKİ) = Kilo / (Boy * Boy)</strong></p><p>Elde edilen VKİ değeri, kişinin vücut ağırlığının boyuna oranını gösterir. VKİ değeri, belirli aralıklara göre sınıflandırılır ve kişinin ideal kilosunu belirlemek için kullanılır.</p><h2>İdeal Kilo Nedir?</h2><p>İdeal kilo, her bireyin sağlıklı bir yaşam sürdürebilmesi için gereken en uygun kilo aralığıdır. İdeal kilo, kişinin genel sağlık durumunu, yaşam tarzını, genetik faktörleri ve metabolizma hızını da dikkate alarak belirlenir.</p><p>İdeal kilo, yalnızca dış görünümle ilgili değildir. Sağlıklı bir kiloya sahip olmak, kalp sağlığı, diyabet riski, eklem problemleri ve diğer birçok hastalığın önlenmesine yardımcı olabilir.</p><h2>İdeal Kilo Kaç Olmalı?</h2><p>İdeal kilo, her birey için farklı olabilir. Ancak, vücut kitle indeksi (VKİ) genellikle ideal kilo hesaplamasında kullanılan bir ölçüdür. VKİ değerleri aşağıdaki şekilde sınıflandırılabilir:</p><p><strong>VKİ değeri 18.5'in altında:</strong> Zayıf</p><p><strong>VKİ değeri 18.5 ile 24.9 arasında:</strong> Normal kilolu</p><p><strong>VKİ değeri 25 ile 29.9 arasında:</strong> Fazla kilolu</p><p><strong>VKİ değeri 30 ve üzerinde:</strong> Obez</p><p>Bu sınıflandırmalar genel bir bakış sağlar, ancak bireysel farklılıklar göz önünde bulundurulmalıdır. İdeal kilo, sadece VKİ değerine dayanarak değerlendirilmemelidir. Bir sağlık uzmanıyla konuşarak kişisel ideal kilonuzu belirlemeniz önemlidir.</p><h3>İdeal Kilo Nasıl Hesaplanır?</h3><p>Genellikle kullanılan ve web sitemizde kullandığımız ideal kilo hesaplama aracı şu formüle dayanmaktadır;</p><p><strong>Erkeklerde :</strong> 50 + 2,3 X (İnç cinsinden boy - 60)</p><p><strong>Kadınlarda :</strong> 45,5 + 2,3 X (İnç cinsinden boy - 60)</p><h3>İdeal Kilo Hesaplama İçin Ek Bilgiler</h3><p>Bu noktada, ideal kilonuzu belirlemek için VKİ hesaplaması yapabilirsiniz. Ancak, vücut kompozisyonu (kas, yağ, su oranı vb.), kemik yapısı ve genetik faktörler gibi diğer faktörler de hesaba katılmalıdır.</p><p>Unutmayın ki, her insanın vücut yapısı farklıdır ve ideal kilo birçok değişkene bağlı olarak değişebilir. Sağlıklı bir yaşam tarzı benimsemek, dengeli beslenmek, düzenli egzersiz yapmak ve stresi yönetmek ideal kilonuzu korumanıza yardımcı olacaktır.</p>",
+      "tags": [
+        "ideal kilo",
+        "ideal kilo hesaplama",
+        "ideal kilo nedir",
+        "ideal kilo kaç olmalı",
+        "kilo hesaplama"
+      ],
+      "url": "ideal-kilo-hesaplama",
+      "calculateComponent": "IdealKiloHesaplama",
+      "date": "01-06-2023"
+    },
+    {
+      "id": 2,
+      "title": "Vücut Kitle İndeksi Hesaplama",
+      "description": "Vücut Kitle İndeksi (VKİ) hesaplama hakkında bilgi edinin. VKİ nedir, nasıl hesaplanır ve ideal VKİ değeri kaç olmalıdır?",
+      "image": "/calculations/vucut-kitle-indeksi-hesaplama.png",
+      "contentText": "<p>Vücut Kitle İndeksi (VKİ), bir kişinin sağlıklı bir vücut ağırlığına sahip olup olmadığını belirlemek için kullanılan bir ölçüttür. VKİ, kişinin boy ve kilo bilgilerini temel alarak hesaplanır.</p><p><strong>Vücut Kitle İndeksi (VKİ) = Kilo / (Boy * Boy)</strong></p><p>VKİ değeri, kişinin vücut ağırlığının boyuna oranını gösterir. VKİ hesaplama yöntemi, yaygın olarak kullanılan bir araçtır ve kişinin obezite riskini değerlendirmede yardımcı olur. VKİ değeri, aşağıdaki şekilde sınıflandırılır:</p><p><strong>VKİ değeri 18.5'in altında:</strong> Zayıf</p><p><strong>VKİ değeri 18.5 ile 24.9 arasında:</strong> Normal kilolu</p><p><strong>VKİ değeri 25 ile 29.9 arasında:</strong> Fazla kilolu</p><p><strong>VKİ değeri 30 ve üzerinde:</strong> Obez</p><h2>Vücut Kitle İndeksi Nedir?</h2><p>Vücut Kitle İndeksi (VKİ), bir kişinin kilosunu boyuna göre değerlendiren bir ölçüttür. VKİ, genel olarak kilolu olma ve obezite riskini belirlemek için kullanılır. VKİ, kişinin sağlığını değerlendirmede ve ideal kilo aralığını belirlemede yardımcı olur.</p><p>VKİ, sadece kilo ve boy bilgilerini dikkate alırken, vücut kompozisyonu, kas yağ oranı ve kemik yapısı gibi faktörleri göz ardı edebilir. Bu nedenle, VKİ değeri yalnızca bir genel bakış sağlar ve kişisel farklılıklar göz önünde bulundurulmalıdır.</p><h3>Vücut Kitle İndeksi Nasıl Hesaplanır?</h3><p>Vücut Kitle İndeksi (VKİ) hesaplamak için aşağıdaki adımları izleyebilirsiniz:</p><ul><li>Kişinin boyunu metre cinsinden ölçün.</li><li>Kişinin kilosunu kilogram cinsinden belirleyin.</li><li>Hesaplama yapmak için elde edilen boy ve kilo değerlerini kullanın.</li><li>Vücut Kitle İndeksi (VKİ) formülünü uygulayarak VKİ değerini bulun:</li></ul><p><strong>VKİ = Kilo / (Boy * Boy)</strong></p><p>Elde edilen VKİ değeri, kişinin vücut ağırlığının boyuna oranını gösterir. Bulduğunuz VKİ değeri, yukarıda belirtilen sınıflandırmaları kullanarak kendi VKİ durumunuzu değerlendirebilirsiniz.</p>",
+      "tags": [
+        "vücut kitle indeksi",
+        "vücut kitle indeksi hesaplama",
+        "vücut kitle indeksi nedir",
+        "vki nedir",
+        "vücut kitle indeksi nasıl hesaplanır",
+        "vki nasıl hesaplanır"
+      ],
+      "url": "vucut-kitle-indeksi-hesaplama",
+      "calculateComponent": "VucutKitleIndeksiHesaplama",
+      "date": "01-06-2023"
+    },
+    {
+      "id": 3,
+      "title": "Bazal Metabolizma Hızı Hesaplama",
+      "description": "Bazal Metabolizma Hızı (BMH) hakkında bilgi edinin. BMH nedir, nasıl hesaplanır ve ideal BMH değeri kaç olmalıdır?",
+      "image": "/calculations/bazal-metabolizma-hizi-hesaplama.png",
+      "contentText": "<h2>Bazal Metabolizma Hızı (BMH) Nedir?</h2><p>Bazal Metabolizma Hızı (BMH), bir kişinin vücudunun dinlenme durumunda ne kadar enerji harcadığını gösteren bir ölçüttür. BMH, kişinin yaşına, cinsiyetine, kilosuna ve boyuna bağlı olarak değişir. BMH, vücudun temel fonksiyonlarını sürdürebilmek için gereken enerji miktarını ifade eder. Bu fonksiyonlar arasında solunum, dolaşım, hücre yenilenmesi ve organların çalışması bulunur.</p><h2>Bazal Metabolizma Hızı Hesaplama</h2><p>Bazal Metabolizma Hızı (BMH) hesaplamak için çeşitli formüller kullanılabilir. En yaygın kullanılan formüllerden biri olan ve bazal metabolizma hızı hesaplama için web sitemizde kullandığımız:</p><p>Erkekler için:</p><p><strong>BMH = 66,5 + (13,75 x kg cinsinden ağırlık) + (5,03 x cm cinsinden boy) – (6,75 x yaş)</strong></p><p>Kadınlar için:</p><p><strong>BMH = 655,1 + (9,56 x kg cinsinden ağırlık) + (1,85 x cm cinsinden boy) – (4,68 x yaş)</strong></p><p>Elde edilen BMH değeri, günlük temel enerji ihtiyacınızı temsil eder. Ancak, bu değer sadece dinlenme durumundaki enerji harcamanızı gösterir ve günlük aktivitelerle harcadığınız enerji miktarını hesaba katmaz. Aktivite seviyenize bağlı olarak BMH'ye çarpan faktörler kullanarak toplam enerji ihtiyacınızı belirlemek daha doğru olacaktır.</p><h3>Bazal Metabolizma Hızı Kaç Olmalı?</h3><p>Bazal Metabolizma Hızı (BMH), kişinin yaşına, cinsiyetine, kilosuna ve boyuna bağlı olarak değişir. BMH değeri, bir kişinin temel enerji ihtiyacını temsil eder. İdeal BMH değeri, kişinin yaşam tarzı, aktivite düzeyi ve hedeflerine bağlı olarak farklılık gösterebilir.</p><p>BMH değerini belirlerken dikkate almanız gereken faktörler arasında kilo kontrolü, kilo alma veya kilo verme hedefleri, egzersiz düzeni ve genel sağlık durumu yer alır. Bir beslenme uzmanı veya sağlık uzmanı, size uygun olan ideal BMH değerini belirlemenizde size yardımcı olabilir.</p><div className=\"bg-site text-white p-3 opacity-80 my-6\">",
+      "tags": [
+        "bazal metabolizma hızı",
+        "bazal metabolizma hızı hesaplama",
+        "bazal metabolizma hızı kaç olmalı",
+        "bazal metabolizma hızı nedir",
+        "metabolizma hızı hesaplama",
+        "ideal BMH",
+        "BMH",
+        "BMH nasıl hesaplanır"
+      ],
+      "url": "bazal-metabolizma-hizi-hesaplama",
+      "calculateComponent": "BazalMetabolizmaHiziHesaplama",
+      "date": "01-06-2023"
+    }
+  ]
