@@ -36,7 +36,7 @@ function Hakkimda(props) {
               className='text-site font-gemunu text-xl tracking-wider'> WhatsApp&#39;tan </Link> veya aşağıdaki sosyal medya bağlantılarımdan ulaşabilirsiniz. </p>
 
           <strong className='font-gemunu tracking-wide text-2xl'>Sosyal Medya Adreslerim</strong>
-          <ul className='flex gap-6 flex-wrap'>
+          <ul className='flex gap-6 flex-wrap lg:justify-start justify-center'>
             {
               SocialsData.map((data, key) => (
                 <AboutSocials socialUrl={data.socialUrl} socialName={data.socialName} iconName={data.iconName} key={key} />
