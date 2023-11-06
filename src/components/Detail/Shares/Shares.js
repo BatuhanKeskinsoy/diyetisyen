@@ -84,7 +84,6 @@ function BlogShares(props) {
 function OnlineDiyetShares(props) {
     const pathname = usePathname()
     const fullUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${pathname}`
-    console.log(fullUrl);
     return (
         <div className='flex flex-col gap-y-5 items-start'>
             <span className='text-gray-600 font-gemunu tracking-wide text-lg'>Bu içeriği aşağıdaki bağlantılar ile paylaşabilirsiniz..</span>
