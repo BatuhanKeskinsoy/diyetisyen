@@ -3,7 +3,6 @@ import { FacebookShareButton, FacebookIcon } from 'next-share'
 import { TwitterShareButton, TwitterIcon } from 'next-share'
 import { WhatsappShareButton, WhatsappIcon } from 'next-share'
 import { LinkedinShareButton, LinkedinIcon } from 'next-share'
-import { ViberShareButton, ViberIcon } from 'next-share'
 import { TelegramShareButton, TelegramIcon } from 'next-share'
 import { RedditShareButton, RedditIcon } from 'next-share'
 import { EmailShareButton, EmailIcon } from 'next-share'
@@ -85,6 +84,7 @@ function BlogShares(props) {
 function OnlineDiyetShares(props) {
     const pathname = usePathname()
     const fullUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${pathname}`
+    console.log(fullUrl);
     return (
         <div className='flex flex-col gap-y-5 items-start'>
             <span className='text-gray-600 font-gemunu tracking-wide text-lg'>Bu içeriği aşağıdaki bağlantılar ile paylaşabilirsiniz..</span>

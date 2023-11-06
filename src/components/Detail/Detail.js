@@ -5,9 +5,9 @@ import generalsData from '@/data/generals'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 import OtherContents from '@/components/Detail/OtherContents/OtherContents'
 import OtherContentsItem from './OtherContents/Item'
-import { BlogShares, OnlineDiyetShares } from './Shares/Shares'
+import { BlogShares, OnlineDiyetShares } from '@/components/Detail/Shares/Shares'
 import blogsData from '@/data/blogs'
-import OnlineDiyet from '../OnlineDiyet/OnlineDiyet'
+import OnlineDiyet from '@/components/OnlineDiyet/OnlineDiyet'
 
 function CalculateDetail(props) {
     return (
