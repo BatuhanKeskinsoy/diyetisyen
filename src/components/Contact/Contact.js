@@ -11,7 +11,7 @@ function Iletisim(props) {
 
     return (
         <section className='relative z-10 w-full h-full flex lg:flex-row flex-col bg-gray-100'>
-            <div className='w-full overflow-hidden flex-1 py-8' dangerouslySetInnerHTML={{ __html: GeneralsData.addressIframe }}></div>
+            <div className='w-full overflow-hidden flex-1' dangerouslySetInnerHTML={{ __html: GeneralsData.addressIframe }}></div>
 
             <div className="relative flex-1">
                 <div className='lg:px-8 px-4 flex justify-center items-center h-full'>
