@@ -1,47 +1,50 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import blogsData from '@/data/blogs'
 import { BlogDetail } from '@/components/Detail/Detail'
 import { useRouter } from 'next/router'
+import { MetaBlogDetay } from '@/meta/metaBlogDetay'
 
-function Page() {
+function Page({ metaFilteredBlogs }) {
 
-    const router = useRouter()
-    const { slug } = router.query
-    const [data, setData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter()
+  const { slug } = router.query
 
-    useEffect(() => {
-        if (slug) {
-          const filteredBlogData = blogsData.find(blog => blog.url === slug)
-    
-          if (filteredBlogData) {
-            setData(filteredBlogData)
-            setIsLoading(false)
-          } else {
-            // Navigate to the 404 page manually
-            router.push('/404')
-          }
-        }
-      }, [slug])
+  const filteredBlogs = blogsData.find(blog => blog.url === slug)
 
-    if (isLoading) {
-        return <div className='w-full h-96 font-gemunu text-3xl flex items-center justify-center'>Yükleniyor...</div>;
-    }
-    if (!data) {
-        return null; // Eğer veri bulunamazsa veya yönlendirme yapılırsa `null` döndürün
-    }
+  if (!filteredBlogs) {
+    return null;
+  }
 
-    return (
-        <BlogDetail
-            title={data.title}
-            image={data.image}
-            contentText={data.contentText}
-            description={data.description}
-            tags={data.tags} url={data.url}
-            isRecipe={data.isRecipe}
-            showAllUrl={'/blog'}
-        />
-    )
+  return (
+    <>
+      <MetaBlogDetay slug={slug} data={metaFilteredBlogs} />
+
+      <BlogDetail
+        title={filteredBlogs.title}
+        image={filteredBlogs.image}
+        contentText={filteredBlogs.contentText}
+        description={filteredBlogs.description}
+        tags={filteredBlogs.tags} url={filteredBlogs.url}
+        isRecipe={filteredBlogs.isRecipe}
+        showAllUrl={'/blog'}
+      />
+    </>
+  )
 }
+
+
+export async function getServerSideProps(context) {
+  const { params } = context;
+  const slug = params.slug;
+
+  const metaFilteredBlogs = slug ? blogsData.find(blog => blog.url === slug) : null
+
+  return {
+    props: {
+      metaFilteredBlogs,
+    },
+  };
+}
+
 
 export default Page
