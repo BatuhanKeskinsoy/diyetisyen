@@ -35,7 +35,17 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const slug = params.slug;
 
-  const metaFilteredServices = slug ? servicesData.find(service => service.url === slug) : null
+  let metaFilteredServices = null;
+
+  if (slug) {
+    metaFilteredServices = servicesData.find(service => service.url === slug);
+
+    if (!metaFilteredServices) {
+      return {
+        notFound: true,
+      };
+    }
+  }
 
   return {
     props: {

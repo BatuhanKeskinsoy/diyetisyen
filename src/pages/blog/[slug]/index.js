@@ -9,7 +9,7 @@ function Page({ metaFilteredBlogs }) {
   const router = useRouter()
   const { slug } = router.query
 
-  const filteredBlogs = blogsData.find(blog => blog.url === slug)
+  const filteredBlogs = slug ? blogsData.find(blog => blog.url === slug) : null
 
   if (!filteredBlogs) {
     return null;
@@ -37,7 +37,17 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const slug = params.slug;
 
-  const metaFilteredBlogs = slug ? blogsData.find(blog => blog.url === slug) : null
+  let metaFilteredBlogs = null;
+
+  if (slug) {
+    metaFilteredBlogs = blogsData.find(blog => blog.url === slug);
+
+    if (!metaFilteredBlogs) {
+      return {
+        notFound: true,
+      };
+    }
+  }
 
   return {
     props: {

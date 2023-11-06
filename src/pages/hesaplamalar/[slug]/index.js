@@ -55,7 +55,17 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const slug = params.slug;
 
-  const metaFilteredCalculations = slug ? calculationsData.find(calculation => calculation.url === slug) : null
+  let metaFilteredCalculations = null;
+
+  if (slug) {
+    metaFilteredCalculations = calculationsData.find(calculation => calculation.url === slug);
+
+    if (!metaFilteredCalculations) {
+      return {
+        notFound: true,
+      };
+    }
+  }
 
   return {
     props: {
