@@ -17,7 +17,7 @@ function Iletisim(props) {
                 <div className='lg:px-8 px-4 flex justify-center items-center h-full'>
                     <div className="flex flex-col px-4 w-full justify-between items-start gap-x-8">
                         <div className="flex flex-col justify-between items-center lg:items-start w-full gap-y-8">
-                            <div className="flex lg:flex-row flex-col gap-y-4 items-center lg:justify-between justify-center lg:mb-12 w-full">
+                            <div className="flex lg:flex-row flex-col gap-y-4 items-center lg:justify-between justify-center lg:mb-12 w-full lg:mt-0 mt-12">
 
                                 {
                                     props.forHome ? (
