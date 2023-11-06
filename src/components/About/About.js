@@ -9,7 +9,7 @@ function Hakkimda(props) {
   const phoneSlug = generalsData.phone.replace(/\s/g, '');
   return (
     <section className='relative z-10'>
-      <div className='container mx-auto lg:pt-32 lg:pb-48 py-8 flex lg:flex-row gap-x-28 lg:gap-y-0 gap-y-8 flex-col-reverse'>
+      <div className='container mx-auto lg:py-24 py-8 flex lg:flex-row gap-x-28 lg:gap-y-0 gap-y-8 flex-col-reverse'>
         <div className='relative lg:w-[500px] lg:h-[500px] w-full h-[400px] lg:border-[20px] border-site lg:rounded-3xl  shadow-inner shadow-gray-600 group'>
             <Image
               src={'/profile/picture1.png'}

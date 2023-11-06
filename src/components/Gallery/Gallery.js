@@ -11,8 +11,8 @@ function Gallery(props) {
         arrows: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 4,
+        slidesToScroll: 4,
         lazyLoad: true,
         autoplay: true,
         autoplaySpeed: 4000,
@@ -45,8 +45,8 @@ function Gallery(props) {
         ]
     };
     return (
-        <section id='gallerySection' className="relative bg-gray-200">
-            <div className='container mx-auto lg:px-0 px-4 lg:pt-24 lg:pb-36 pt-14 pb-24 gap-y-8 flex flex-col'>
+        <section id='gallerySection' className="relative bg-gray-100">
+            <div className='container mx-auto lg:px-0 px-4 lg:py-24 pt-14 pb-24 gap-y-8 flex flex-col'>
                 <h2 className='text-3xl lg:text-5xl font-dancing tracking-wide'>Fotoğraf Galerisi</h2>
                 <Slider {...settings}>
 
