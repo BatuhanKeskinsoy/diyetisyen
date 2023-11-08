@@ -47,7 +47,7 @@ function Blog(props) {
     // Sayfa boyutuna göre PAGE_SIZE belirleme
     const pageSize = typeof window !== 'undefined' && window.innerWidth < 768 ? PAGE_SIZE_MOBILE : PAGE_SIZE_DESKTOP;
     const totalPageCount = Math.ceil(filteredBlogs.length / pageSize);
-    const paginatedBlogs = props.forHome ? filteredBlogs.slice(0, 3) : filteredBlogs.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+    const paginatedBlogs = props.forHome ? filteredBlogs.slice(0, 4) : filteredBlogs.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
     const handlePrevPage = () => {
         if (currentPage > 1) {
@@ -108,6 +108,7 @@ function Blog(props) {
                                 description={blogItem.description}
                                 image={blogItem.image}
                                 url={blogItem.url}
+                                date={blogItem.date}
                                 isRecipe={blogItem.isRecipe}
                                 forHome={props.forHome}
                                 pathnameBlog={pathname}

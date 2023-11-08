@@ -16,16 +16,16 @@ function CalculateDetail(props) {
                 <div className="flex lg:flex-row flex-col gap-x-8 lg:mt-6">
                     <div className='flex-[1_1_75%]'>
                         <h1 className='text-3xl lg:text-5xl font-dancing tracking-wide'>{props.title}</h1>
-                        
+
                         {props.calculationComponent}
 
-                        
+
 
                         <hr className='my-4' />
 
                         <div className='DetailContent' dangerouslySetInnerHTML={{ __html: props.contentText }}></div>
                         <div className="bg-site text-white p-3 opacity-80 my-6">Not: Bu hesaplama sadece genel bir fikir verir ve kişisel ihtiyaçlarınızı tam olarak yansıtmayabilir. Sağlıklı bir kilo hedefi belirlemek için <strong>bana</strong> ulaşabilirsiniz.</div>
-                        
+
 
                         <BlogShares title={props.title} description={props.description} tags={props.tags} />
 
@@ -45,7 +45,7 @@ function CalculateDetail(props) {
                             </div>
                             <Image
                                 src={'/profile/picture1.png'}
-                                sizes='(max-width: 768px) 100vw, 30vw'
+                                sizes='(max-width: 768px) 100vw, 50vw'
                                 fill
                                 loading='lazy'
                                 alt={generalsData.fullName}
@@ -73,7 +73,7 @@ function ServiceDetail(props) {
                         <div className='relative lg:h-[600px] h-48'>
                             <Image
                                 src={props.image}
-                                sizes='(max-width: 768px) 100vw, 50vw'
+                                sizes='(max-width: 768px) 100vw, 80vw'
                                 fill
                                 priority
                                 alt={props.title}
@@ -123,6 +123,19 @@ function ServiceDetail(props) {
 }
 
 function BlogDetail(props) {
+    const dateStr = props.date;
+
+    const months = [
+        "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
+    ];
+
+    const parts = dateStr.split("-"); // "-" karakterine göre tarihi ayır
+
+    const day = parts[0];
+    const monthIndex = parseInt(parts[1]) - 1; // Ay indeksleri 0'dan başladığı için 1 çıkarıyoruz
+    const month = months[monthIndex];
+    const year = parts[2];
+
     return (
         <section className='relative'>
             <div className='container mx-auto py-12 px-4 lg:px-0'>
@@ -136,12 +149,20 @@ function BlogDetail(props) {
                             )}
                             <Image
                                 src={props.image}
-                                sizes='(max-width: 768px) 100vw, 50vw'
+                                sizes='(max-width: 768px) 100vw, 80vw'
                                 fill
                                 priority
                                 alt={props.title}
                                 title={props.title}
                                 className='object-cover object-center rounded-xl shadow-2xl shadow-black/10' />
+                            <time
+                                dateTime={props.date}
+                                className="absolute bg-white/70 py-1 px-2 text-xs font-bold text-black top-4 right-4 flex flex-col items-center rounded-xl"
+                            >
+                                <span className='text-5xl'>{day}</span>
+                                <span className='text-base font-semibold'>{month}</span>
+                                <span className='text-2xl font-semibold'>{year}</span>
+                            </time>
                         </div>
 
                         <h1 className='lg:text-3xl text-2xl mt-12 mb-4 font-semibold'>{props.title}</h1>
@@ -198,7 +219,7 @@ function OnlineDiyetDetail(props) {
                         <div className='relative lg:h-[600px] h-48'>
                             <Image
                                 src={image}
-                                sizes='(max-width: 768px) 100vw, 50vw'
+                                sizes='(max-width: 768px) 100vw, 80vw'
                                 fill
                                 priority
                                 alt={title}

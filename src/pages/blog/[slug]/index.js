@@ -24,7 +24,9 @@ function Page({ metaFilteredBlogs }) {
         image={filteredBlogs.image}
         contentText={filteredBlogs.contentText}
         description={filteredBlogs.description}
-        tags={filteredBlogs.tags} url={filteredBlogs.url}
+        tags={filteredBlogs.tags} 
+        url={filteredBlogs.url}
+        date={filteredBlogs.date}
         isRecipe={filteredBlogs.isRecipe}
         showAllUrl={'/blog'}
       />
