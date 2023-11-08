@@ -75,7 +75,7 @@ function ServiceDetail(props) {
                                 src={props.image}
                                 sizes='(max-width: 768px) 100vw, 80vw'
                                 fill
-                                priority
+                                priority={true}
                                 alt={props.title}
                                 title={props.title}
                                 className='object-cover object-center rounded-xl shadow-2xl shadow-black/10' />
@@ -151,7 +151,7 @@ function BlogDetail(props) {
                                 src={props.image}
                                 sizes='(max-width: 768px) 100vw, 80vw'
                                 fill
-                                priority
+                                priority={true}
                                 alt={props.title}
                                 title={props.title}
                                 className='object-cover object-center rounded-xl shadow-2xl shadow-black/10' />
@@ -221,7 +221,7 @@ function OnlineDiyetDetail(props) {
                                 src={image}
                                 sizes='(max-width: 768px) 100vw, 80vw'
                                 fill
-                                priority
+                                priority={true}
                                 alt={title}
                                 title={title}
                                 className='object-cover object-center rounded-xl shadow-2xl shadow-black/10' />

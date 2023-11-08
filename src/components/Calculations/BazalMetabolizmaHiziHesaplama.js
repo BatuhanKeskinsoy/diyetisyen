@@ -54,7 +54,7 @@ function BMHHesaplama(props) {
         src={props.image}
         sizes='(max-width: 768px) 100vw, 50vw'
         fill
-        priority
+        priority={true}
         alt={props.title}
         title={props.title}
         className='object-cover object-center -z-20 blur-sm' />
