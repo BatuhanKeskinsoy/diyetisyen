@@ -9,7 +9,7 @@ function Item(props) {
                     <Image
                         src={props.image}
                         fill
-                        sizes="(max-width: 768px) 100vw, 20vw"
+                        sizes="(max-width: 768px) 100vw, 35vw"
                         loading='lazy'
                         alt={props.title}
                         title={props.title}
