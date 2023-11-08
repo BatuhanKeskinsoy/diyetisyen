@@ -9,7 +9,7 @@ import '@/styles/slick.min.css'
 import MetaFavicon from '@/meta/Favicon'
 
 export default function App({ Component, pageProps }) {
-  
+
   return (
     <>
       <MetaFavicon />

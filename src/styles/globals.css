@@ -26,6 +26,7 @@
   
   html{
     @apply font-system font-normal;
+    @apply scroll-smooth
   }
   
   *::-webkit-scrollbar {

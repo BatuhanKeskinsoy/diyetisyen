@@ -11,18 +11,17 @@ function Banner(props) {
         arrows: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 8000
     };
+
+
     return (
         <section id='bannerSection' className='relative'>
             <Slider {...settings}>
                 {
                     bannersData.map((bannerItem, index) => (
                         <Item
-                            aria-hidden={false} tabIndex={bannerItem.id}
                             key={bannerItem.id}
                             image={bannerItem.image}
                             title={bannerItem.title}

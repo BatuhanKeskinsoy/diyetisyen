@@ -78,8 +78,9 @@ function FooterItem(props) {
                         sizes="(max-width: 768px) 50vw, 10vw"
                         fill
                         loading='lazy'
-                        alt={props.title}
-                        title={props.title}
+                        alt={`${props.title} Hakkında Blog İçeriği`}
+                        
+                        title={`${props.title} Hakkında Blog İçeriği`}
                         className='object-cover object-center rounded-md'
                     />
                 </div>

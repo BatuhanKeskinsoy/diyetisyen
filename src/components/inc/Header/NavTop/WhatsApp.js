@@ -1,7 +1,6 @@
 import React from 'react'
 import { FaWhatsapp } from "react-icons/fa"
 import Link from 'next/link'
-import GeneralsData from '@/data/generals'
 
 function NavTopWhatsApp(props) {
     return (
@@ -11,7 +10,7 @@ function NavTopWhatsApp(props) {
             title='WhatsApp'
             className='h-full flex items-center justify-center px-4 gap-x-2 bg-green-500 hover:bg-green-400 transition-all'>
             <FaWhatsapp size={24} className='text-white cursor-pointer transition-all' />
-            <span className='text-base font-semibold tracking-wide text-white'>WhatsApp</span>
+            <span className='text-xl tracking-wider text-white font-gemunu'>WhatsApp</span>
         </Link>
     )
 }
