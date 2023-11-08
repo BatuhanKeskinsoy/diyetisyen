@@ -21,8 +21,8 @@ function Loading() {
                             width={250}
                             height={65}
                             priority
-                            alt={process.env.NEXT_PUBLIC_SITE_URL}
-                            title={process.env.NEXT_PUBLIC_SITE_URL}
+                            alt={process.env.NEXT_PUBLIC_SITE_NAME}
+                            title={process.env.NEXT_PUBLIC_SITE_NAME}
                             className='animate-scaleMobile lg:animate-scaleDesktop'
                         />
                     </div>

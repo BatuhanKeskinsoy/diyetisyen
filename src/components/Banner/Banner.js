@@ -22,6 +22,7 @@ function Banner(props) {
                 {
                     bannersData.map((bannerItem, index) => (
                         <Item
+                            aria-hidden={false} tabIndex={bannerItem.id}
                             key={bannerItem.id}
                             image={bannerItem.image}
                             title={bannerItem.title}

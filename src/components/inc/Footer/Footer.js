@@ -129,9 +129,9 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-customSecondary-900 text-white">
+      <div className="bg-customSecondary-900">
         <div className="container mx-auto py-3 px-4 lg:px-0">
-          <div className="w-full flex justify-between text-gray-400 text-md lg:flex-row flex-col text-center font-gemunu tracking-wide">
+          <div className="w-full flex justify-between text-gray-200 text-lg lg:flex-row flex-col text-center font-gemunu tracking-wider">
             <div className='md:my-0 my-1'>
               Copyright <span className='font-system'>©</span>
               <span className='text-site ml-1 transition-all'>

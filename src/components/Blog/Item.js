@@ -30,7 +30,7 @@ function Item(props) {
                         fill
                         sizes="(max-width: 768px) 100vw, 35vw"
                         loading='lazy'
-                        alt={props.title}
+                        alt={`${props.title} Hakkında Blog İçeriği`}
                         title={props.title}
                         className='object-cover object-center rounded-t-xl group-hover:scale-110 transition-all'
                     />

@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 function Item(props) {
     return (
-        <div className='relative w-full'>
+        <div className='relative w-full' aria-hidden={false} tabIndex={props.key}>
             <div className="lg:h-[calc(100vh-136px)] h-[calc(100vh-96px)] container mx-auto">
                 <div className="bg-black-900 lg:bg-transparent lg:bg-gradient-to-r from-black absolute left-0 top-0 w-full h-full z-10 opacity-60"></div>
                 <Image
