@@ -143,8 +143,8 @@ function BlogDetail(props) {
                     <div className='flex-[1_1_75%]'>
                         <div className='relative lg:h-[600px] h-48'>
                             {props.isRecipe && (
-                                <div className='absolute -left-5 top-5 right-auto rounded-xl rounded-bl-none py-3 px-6 bg-site text-white z-10 before:content-[""] before:absolute before:w-5 before:h-5 before:-bottom-5 before:left-0 before:bg-site/90 before:opacity-50 before:clip-your-needful-style'>
-                                    <span className='text-2xl font-gemunu tracking-wider'>TARİF</span>
+                                <div className='absolute -left-5 lg:top-5 top-3 right-auto rounded-xl rounded-bl-none lg:py-3 py-1 lg:px-6 px-4 bg-site text-white z-10 before:content-[""] before:absolute before:w-5 before:h-5 before:-bottom-5 before:left-0 before:bg-site/90 before:opacity-50 before:clip-your-needful-style'>
+                                    <span className='lg:text-2xl text-xl font-gemunu tracking-wider'>TARİF</span>
                                 </div>
                             )}
                             <Image
@@ -157,11 +157,11 @@ function BlogDetail(props) {
                                 className='object-cover object-center rounded-xl shadow-2xl shadow-black/10' />
                             <time
                                 dateTime={props.date}
-                                className="absolute bg-white/70 py-1 px-2 text-xs font-bold text-black top-4 right-4 flex flex-col items-center rounded-xl"
+                                className="absolute bg-white/70 py-1 px-2 text-xs font-bold text-black lg:top-4 top-2 lg:right-4 right-2 flex flex-col items-center rounded-xl"
                             >
-                                <span className='text-5xl'>{day}</span>
-                                <span className='text-base font-semibold'>{month}</span>
-                                <span className='text-2xl font-semibold'>{year}</span>
+                                <span className='lg:text-4xl text-3xl'>{day}</span>
+                                <span className='lg:text-sm text-xs font-semibold'>{month}</span>
+                                <span className='lg:text-xl text-lg font-semibold'>{year}</span>
                             </time>
                         </div>
 

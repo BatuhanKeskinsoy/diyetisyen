@@ -60,7 +60,7 @@ function Item(props) {
                 </div>
             </Link>
             {props.isRecipe && (
-                <div className='absolute -left-1 top-5 rounded-xl rounded-bl-none py-2 px-5 bg-site text-white z-10 before:content-[""] before:absolute before:w-4 before:h-4 before:-bottom-4 before:left-0 before:bg-site/90 before:opacity-50 before:clip-your-needful-style'>
+                <div className='absolute lg:-left-1 -left-4 lg:top-5 top-3 rounded-xl rounded-bl-none lg:py-2 py-1 lg:px-5 px-3 bg-site text-white z-10 before:content-[""] before:absolute before:w-4 before:h-4 before:-bottom-4 before:left-0 before:bg-site/90 before:opacity-50 before:clip-your-needful-style'>
                     <span className='text-lg font-gemunu tracking-wider'>TARİF</span>
                 </div>
             )}
