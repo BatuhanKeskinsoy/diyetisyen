@@ -210,7 +210,7 @@ function OnlineDiyetDetail(props) {
     const title = 'Online Diyet'
     const description = 'Online diyet, sağlıklı bir yaşam tarzı sürdürmek isteyenlere internet üzerinden diyetisyenlik hizmeti sunan bir yöntemdir. Bu hizmet, beslenme planları, diyet önerileri ve kilo kontrolü gibi konularda rehberlik almanızı sağlar.'
     const tags = ['online diyet', 'online diyet nedir', 'online diyet faydaları', 'online diyet ücretleri']
-    const image = '/theme/online-diyet-page.jpg'
+    const image = '/theme/online-diyet-nedir.jpg'
     return (
         <section className='relative'>
             <div className='container mx-auto py-12 px-4 lg:px-0'>

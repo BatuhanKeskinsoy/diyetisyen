@@ -12,7 +12,7 @@ export function MetaOnlineDiyet() {
         Description: `Online diyet, sağlıklı bir yaşam tarzı sürdürmek isteyenlere internet üzerinden diyetisyenlik hizmeti sunan bir yöntemdir. Bu hizmet, beslenme planları, diyet önerileri ve kilo kontrolü gibi konularda rehberlik almanızı sağlar. ${process.env.NEXT_PUBLIC_SITE_NAME}`,
         Keywords: ['online diyet', 'online diyet nedir', 'online diyet faydaları', 'online diyet ücretleri'].join(', '),
         
-        Image: '/theme/online-diyet-page.jpg',
+        Image: '/theme/online-diyet-nedir.jpg',
         currentPathUrl: `/online-diyet`,
         Robots: 'index, follow',
         Type: 'article',
