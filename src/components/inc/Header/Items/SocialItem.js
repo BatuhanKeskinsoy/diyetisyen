@@ -4,8 +4,6 @@ import iconMappings from '@/components/Other/IconMappings';
 
 function SocialsItem(props) {
     const Icon = iconMappings[props.iconName]
-
-    console.log(props.socialName);
     return (
         <li className='list-none'>
             <Link
