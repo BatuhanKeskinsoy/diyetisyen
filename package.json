@@ -9,14 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.0.4",
+    "@types/react-slick": "^0.23.13",
+    "next": "^14.0.4",
     "next-share": "^0.27.0",
     "react": "^18",
+    "react-awesome-lightbox": "^1.8.1",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1",
-    "ts-react-awesome-lightbox": "^1.9.2"
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/node": "^20",

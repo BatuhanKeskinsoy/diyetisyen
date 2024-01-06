@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Anasayfa",
+        "url": "/",
+        "isDropdown": false
+    },
+    {
+        "id": 2,
+        "name": "Online Diyet",
+        "url": "/online-diyet",
+        "isDropdown": false
+    },
+    {
+        "id": 3,
+        "name": "Hizmetlerimiz",
+        "url": "",
+        "isDropdown": true
+    },
+    {
+        "id": 4,
+        "name": "Hesaplamalar",
+        "url": "",
+        "isDropdown": true
+    },
+    {
+        "id": 5,
+        "name": "Blog",
+        "url": "/blog",
+        "isDropdown": false
+    },
+    {
+        "id": 6,
+        "name": "Hakkımda",
+        "url": "/hakkimda",
+        "isDropdown": false
+    },
+    {
+        "id": 7,
+        "name": "İletişim",
+        "url": "/iletisim",
+        "isDropdown": false
+    }
+]

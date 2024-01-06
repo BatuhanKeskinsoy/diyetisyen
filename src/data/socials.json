@@ -1,0 +1,26 @@
+[
+    {
+      "socialId": 1,
+      "socialName": "Facebook",
+      "socialUrl": "https://www.facebook.com/batuhankeskinsoy",
+      "iconName": "CiFacebook"
+    },
+    {
+      "socialId": 2,
+      "socialName": "Twitter",
+      "socialUrl": "https://www.twitter.com/batuhankeskinsoy",
+      "iconName": "CiTwitter"
+    },
+    {
+      "socialId": 3,
+      "socialName": "Youtube",
+      "socialUrl": "https://www.youtube.com/batuhankeskinsoy",
+      "iconName": "CiYoutube"
+    },
+    {
+      "socialId": 4,
+      "socialName": "İnstagram",
+      "socialUrl": "https://www.instagram.com/batuhankeskinsoy",
+      "iconName": "CiInstagram"
+    }
+  ]
