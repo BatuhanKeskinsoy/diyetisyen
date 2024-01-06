@@ -14,7 +14,7 @@ function Gallery() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const openLightbox = (index) => {
-    setCurrentImage(index);
+    setCurrentImage(index - 1);
     setLightboxOpen(true);
   };
 
