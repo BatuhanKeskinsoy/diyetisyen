@@ -40,7 +40,7 @@ function Header() {
       <header className="z-40 relative">
         <div className="bg-botTransparent w-full bg-bottom absolute top-[99%] h-12"></div>
         <div id="headerTop" className="bg-customSecondary-900 text-gray-200">
-          <div className="container mx-auto items-center justify-between h-10 lg:flex hidden">
+          <div className="container mx-auto items-center justify-between h-12 lg:flex hidden">
             <NavTopGenerals phoneSlug={phoneSlug} GeneralsData={GeneralsData} />
 
             <div className="flex h-full">
