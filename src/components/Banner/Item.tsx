@@ -21,7 +21,7 @@ function Item({title, image, isFirstItem, description, btnActive, btnUrl, btnTex
                 <Image
                     src={image}
                     fill
-                    sizes="(max-width: 768px) 100vw, 100vw"
+                    sizes="100vw"
                     alt={title}
                     title={title}
                     {...(isFirstItem && { priority: true })} 
