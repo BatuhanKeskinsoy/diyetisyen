@@ -1,4 +1,4 @@
-import { dataAnasayfa } from "./dataAnasayfa";
+import fetchDataAnasayfa from "./dataAnasayfa";
 import { dataBlog } from "./dataBlog";
 import { data404 } from "./data404";
 import { Metadata } from "next";
@@ -17,8 +17,8 @@ export const meta404 = (): Metadata => {
   };
 };
 
-export const metaAnasayfa = (): Metadata => {
-  const meta = dataAnasayfa;
+export const metaAnasayfa = async (): Promise<Metadata> => {
+  const meta = await fetchDataAnasayfa();
   return {
     metadataBase: new URL(meta.siteUrl),
     title: meta.Title,

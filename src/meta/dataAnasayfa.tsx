@@ -1,28 +1,35 @@
-import generalsData from "@/data/generals.json";
+import { getGenerals } from "@/utils/getGenerals";
+import { GeneralsTypes } from "@/Types";
 
-export const dataAnasayfa = {
-  siteName: process.env.NEXT_PUBLIC_SITE_NAME,
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL
-    ? process.env.NEXT_PUBLIC_SITE_URL
-    : "",
+async function dataAnasayfa() {
+  const generals: GeneralsTypes = await getGenerals();
 
-  Title: `${generalsData.fullName} | ${generalsData.city} Diyetisyen | ${process.env.NEXT_PUBLIC_SITE_NAME}`,
-  Description: `${generalsData.fullName} ile sağlıklı bir yaşam için uzman diyetisyen hizmetleri. Kişiselleştirilmiş beslenme planları, kilo verme, kilo alma ve beslenme danışmanlığı ile ideal kilonuza ulaşın.`,
-  Keywords: [
-    `${generalsData.fullName}`,
-    `${generalsData.city} diyetisyen`,
-    `${generalsData.district} diyetisyen`,
-    `online diyet`,
-  ].join(", "),
+  return {
+    siteName: process.env.NEXT_PUBLIC_SITE_NAME,
+    siteUrl: process.env.NEXT_PUBLIC_SITE_URL
+      ? process.env.NEXT_PUBLIC_SITE_URL
+      : "",
 
-  Image: "/logo/logo.svg",
-  currentPathUrl: "",
-  Robots: "index, follow",
-  Publisher: generalsData.fullName,
-  Creator: "Batuhan Keskinsoy",
-  Author: [
-    { name: generalsData.fullName, url: process.env.NEXT_PUBLIC_SITE_NAME },
-  ],
-  Locale: "tr_TR",
-  twitterId: "@batuhankesk",
-};
+    Title: `${generals?.fullName} | ${generals?.city} Diyetisyen | ${process.env.NEXT_PUBLIC_SITE_NAME}`,
+    Description: `${generals?.fullName} ile sağlıklı bir yaşam için uzman diyetisyen hizmetleri. Kişiselleştirilmiş beslenme planları, kilo verme, kilo alma ve beslenme danışmanlığı ile ideal kilonuza ulaşın.`,
+    Keywords: [
+      `${generals?.fullName}`,
+      `${generals?.city} diyetisyen`,
+      `${generals?.district} diyetisyen`,
+      `online diyet`,
+    ].join(", "),
+
+    Image: "/logo/logo.svg",
+    currentPathUrl: "",
+    Robots: "index, follow",
+    Publisher: generals?.fullName,
+    Creator: "Batuhan Keskinsoy",
+    Author: [
+      { name: generals?.fullName, url: process.env.NEXT_PUBLIC_SITE_NAME },
+    ],
+    Locale: "tr_TR",
+    twitterId: "@batuhankesk",
+  };
+}
+
+export default dataAnasayfa;

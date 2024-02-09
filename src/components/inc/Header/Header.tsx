@@ -6,12 +6,12 @@ import Link from "next/link";
 import NavTopGenerals from "./NavTop/Generals";
 import NavTopWhatsApp from "./NavTop/WhatsApp";
 import NavTopSocials from "./NavTop/Socials";
-import GeneralsData from "@/data/generals.json";
+import { GeneralsTypes } from "@/Types";
 import SocialsData from "@/data/socials.json";
 import NavLinks from "./NavLinks";
 import Loading from "@/components/Other/Loading";
 
-function Header() {
+function Header({ generals }: { generals: GeneralsTypes }) {
   const [navStatus, setNavStatus] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -32,7 +32,7 @@ function Header() {
     };
   }, []);
 
-  const phoneSlug = GeneralsData.phone.replace(/\s/g, "");
+  const phoneSlug = generals?.phone.replace(/\s/g, "");
 
   return (
     <>
@@ -41,14 +41,11 @@ function Header() {
         <div className="bg-botTransparent w-full bg-bottom absolute top-[99%] h-12"></div>
         <div id="headerTop" className="bg-customSecondary-900 text-gray-200">
           <div className="container mx-auto items-center justify-between h-12 lg:flex hidden">
-            <NavTopGenerals phoneSlug={phoneSlug} GeneralsData={GeneralsData} />
+            <NavTopGenerals phoneSlug={phoneSlug} GeneralsData={generals} />
 
             <div className="flex h-full">
               <NavTopSocials SocialsData={SocialsData} />
-              <NavTopWhatsApp
-                phoneSlug={phoneSlug}
-                GeneralsData={GeneralsData}
-              />
+              <NavTopWhatsApp phoneSlug={phoneSlug} GeneralsData={generals} />
             </div>
           </div>
         </div>
@@ -60,7 +57,7 @@ function Header() {
             >
               <Link href={"/"} title={process.env.NEXT_PUBLIC_SITE_NAME}>
                 <Image
-                  src={GeneralsData.logo}
+                  src={generals ? generals.logo : "/"}
                   alt={`${process.env.NEXT_PUBLIC_SITE_NAME}`}
                   title={process.env.NEXT_PUBLIC_SITE_NAME}
                   width={250}

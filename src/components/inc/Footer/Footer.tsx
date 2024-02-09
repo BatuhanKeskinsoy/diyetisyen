@@ -7,9 +7,11 @@ import { FooterItem } from '@/components/Blog/Item'
 import SocialsData from '@/data/socials.json'
 import { FooterSocials } from '../Header/Items/SocialItem'
 import calculationsData from '@/data/calculations.json'
-import GeneralsData from '@/data/generals.json'
+import { getGenerals } from "@/utils/getGenerals";
+import { GeneralsTypes } from "@/Types";
 
-function Footer() {
+async function Footer() {
+  const generals : GeneralsTypes = await getGenerals();
 
   const filteredBlogs = blogsData.sort((a, b) => b.id - a.id).slice(0, 3)
 
@@ -20,7 +22,7 @@ function Footer() {
         <div className="flex gap-x-6 lg:flex-row flex-col lg:gap-y-0 gap-y-6">
           <div className='flex-1 flex flex-col gap-y-6'>
             <Image
-              src={GeneralsData.logo}
+              src={generals ? generals.logo : "/"}
               alt={`${process.env.NEXT_PUBLIC_SITE_NAME}`}
               title={process.env.NEXT_PUBLIC_SITE_NAME}
               width={250}

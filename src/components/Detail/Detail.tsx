@@ -2,7 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import generalsData from "@/data/generals.json";
+import { getGenerals } from "@/utils/getGenerals";
+import { GeneralsTypes } from "@/Types";
 import { AiOutlineDoubleRight } from "react-icons/ai";
 import OtherContents from "@/components/Detail/OtherContents/OtherContents";
 import OtherContentsItem from "./OtherContents/Item";
@@ -13,7 +14,8 @@ import {
 import blogsData from "@/data/blogs.json";
 import OnlineDiyet from "@/components/OnlineDiyet/OnlineDiyet";
 
-function CalculateDetail(props: any) {
+async function CalculateDetail(props: any) {
+  const generals : GeneralsTypes = await getGenerals();
   return (
     <section className="relative">
       <div className="container mx-auto py-12 px-4 lg:px-0">
@@ -46,7 +48,7 @@ function CalculateDetail(props: any) {
           <div className="flex-[1_1_25%] lg:mt-0 mt-6">
             <Link
               href={"/hakkimda"}
-              title={`${generalsData.fullName} Hakkımda`}
+              title={`${generals?.fullName} Hakkımda`}
               className="relative h-96 flex group"
             >
               <div className="lg:bg-transparent bg-gradient-to-t from-black absolute left-0 top-0 w-full h-full z-10 opacity-70 group-hover:opacity-90 transition-all rounded-xl">
@@ -56,7 +58,7 @@ function CalculateDetail(props: any) {
                     <AiOutlineDoubleRight />
                   </span>
                   <span className="text-3xl text-white font-gemunu tracking-wider flex w-full h-full justify-center items-end px-4 py-6 text-center">
-                    {generalsData.fullName}
+                    {generals?.fullName}
                   </span>
                 </div>
               </div>
@@ -65,8 +67,8 @@ function CalculateDetail(props: any) {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 fill
                 loading="lazy"
-                alt={generalsData.fullName}
-                title={generalsData.fullName}
+                alt={generals ? generals.fullName : ""}
+                title={generals?.fullName}
                 className="object-cover object-center rounded-xl shadow-2xl shadow-black/10"
               />
             </Link>
@@ -84,7 +86,8 @@ function CalculateDetail(props: any) {
   );
 }
 
-function ServiceDetail(props: any) {
+async function ServiceDetail(props: any) {
+  const generals : GeneralsTypes = await getGenerals();
   return (
     <section className="relative">
       <div className="container mx-auto py-12 px-4 lg:px-0">
@@ -121,7 +124,7 @@ function ServiceDetail(props: any) {
           <div className="flex-[1_1_25%] lg:mt-0 mt-6">
             <Link
               href={"/hakkimda"}
-              title={`${generalsData.fullName} Hakkımda`}
+              title={`${generals?.fullName} Hakkımda`}
               className="relative h-96 flex group"
             >
               <div className="lg:bg-transparent bg-gradient-to-t from-black absolute left-0 top-0 w-full h-full z-10 opacity-70 group-hover:opacity-90 transition-all rounded-xl">
@@ -131,7 +134,7 @@ function ServiceDetail(props: any) {
                     <AiOutlineDoubleRight />
                   </span>
                   <span className="text-3xl text-white font-gemunu tracking-wider flex w-full h-full justify-center items-end px-4 py-6 text-center">
-                    {generalsData.fullName}
+                    {generals?.fullName}
                   </span>
                 </div>
               </div>
@@ -140,8 +143,8 @@ function ServiceDetail(props: any) {
                 sizes="(max-width: 768px) 100vw, 30vw"
                 fill
                 loading="lazy"
-                alt={generalsData.fullName}
-                title={generalsData.fullName}
+                alt={generals ? generals.fullName : ""}
+                title={generals?.fullName}
                 className="object-cover object-center rounded-xl shadow-2xl shadow-black/10"
               />
             </Link>
@@ -159,7 +162,8 @@ function ServiceDetail(props: any) {
   );
 }
 
-function BlogDetail(props: any) {
+async function BlogDetail(props: any) {
+  const generals : GeneralsTypes = await getGenerals();
   const dateStr = props.date;
 
   const months = [
@@ -241,7 +245,7 @@ function BlogDetail(props: any) {
           <div className="flex-[1_1_25%] lg:mt-0 mt-6">
             <Link
               href={"/hakkimda"}
-              title={`${generalsData.fullName} Hakkımda`}
+              title={`${generals?.fullName} Hakkımda`}
               className="relative h-96 flex group"
             >
               <div className="lg:bg-transparent bg-gradient-to-t from-black absolute left-0 top-0 w-full h-full z-10 opacity-70 group-hover:opacity-90 transition-all rounded-xl">
@@ -251,7 +255,7 @@ function BlogDetail(props: any) {
                     <AiOutlineDoubleRight />
                   </span>
                   <span className="text-3xl text-white font-gemunu tracking-wider flex w-full h-full justify-center items-end px-4 py-6 text-center">
-                    {generalsData.fullName}
+                    {generals?.fullName}
                   </span>
                 </div>
               </div>
@@ -260,8 +264,8 @@ function BlogDetail(props: any) {
                 sizes="(max-width: 768px) 100vw, 30vw"
                 fill
                 loading="lazy"
-                alt={generalsData.fullName}
-                title={generalsData.fullName}
+                alt={generals ? generals.fullName : ""}
+                title={generals?.fullName}
                 className="object-cover object-center rounded-xl shadow-2xl shadow-black/10"
               />
             </Link>
@@ -279,7 +283,9 @@ function BlogDetail(props: any) {
   );
 }
 
-function OnlineDiyetDetail(props: any) {
+async function OnlineDiyetDetail(props: any) {
+  const generals : GeneralsTypes = await getGenerals();
+  
   const title = "Online Diyet";
   const description =
     "Online diyet, sağlıklı bir yaşam tarzı sürdürmek isteyenlere internet üzerinden diyetisyenlik hizmeti sunan bir yöntemdir. Bu hizmet, beslenme planları, diyet önerileri ve kilo kontrolü gibi konularda rehberlik almanızı sağlar.";
@@ -434,16 +440,16 @@ function OnlineDiyetDetail(props: any) {
                 Online Diyet Ücretleri ile alakalı bilgi alabilmek için{" "}
                 <Link
                   className="text-site hover:text-site/80 font-gemunu text-xl tracking-wide"
-                  title={`${generalsData.fullName}`}
+                  title={`${generals?.fullName}`}
                   href={"/hakkimda"}
                 >
-                  {generalsData.fullName}
+                  {generals?.fullName}
                 </Link>{" "}
                 ile{" "}
                 <Link
                   className="text-site hover:text-site/80 font-gemunu text-xl tracking-wide"
                   href={"/iletisim"}
-                  title={`${generalsData.fullName} İletişim`}
+                  title={`${generals?.fullName} İletişim`}
                 >
                   iletişim
                 </Link>
@@ -461,7 +467,7 @@ function OnlineDiyetDetail(props: any) {
           <div className="flex-[1_1_25%] lg:mt-0 mt-6">
             <Link
               href={"/hakkimda"}
-              title={`${generalsData.fullName} Hakkımda`}
+              title={`${generals?.fullName} Hakkımda`}
               className="relative h-96 flex group"
             >
               <div className="lg:bg-transparent bg-gradient-to-t from-black absolute left-0 top-0 w-full h-full z-10 opacity-70 group-hover:opacity-90 transition-all rounded-xl">
@@ -471,7 +477,7 @@ function OnlineDiyetDetail(props: any) {
                     <AiOutlineDoubleRight />
                   </span>
                   <span className="text-3xl text-white font-gemunu tracking-wider flex w-full h-full justify-center items-end px-4 py-6 text-center">
-                    {generalsData.fullName}
+                    {generals?.fullName}
                   </span>
                 </div>
               </div>
@@ -480,8 +486,8 @@ function OnlineDiyetDetail(props: any) {
                 sizes="(max-width: 768px) 100vw, 30vw"
                 fill
                 loading="lazy"
-                alt={generalsData.fullName}
-                title={generalsData.fullName}
+                alt={generals ? generals.fullName : ""}
+                title={generals?.fullName}
                 className="object-cover object-center rounded-xl shadow-2xl shadow-black/10"
               />
             </Link>

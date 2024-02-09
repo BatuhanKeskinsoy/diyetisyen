@@ -1,12 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import GeneralsData from "@/data/generals.json";
 import { meta404 } from "@/meta";
+import { getGenerals } from "@/utils/getGenerals";
+import { GeneralsTypes } from "@/Types";
 
 export const metadata = meta404();
 
-function notFound() {
+async function notFound() {
+  const generals: GeneralsTypes = await getGenerals();
   return (
     <>
       <section className="container mx-auto px-4 flex flex-col justify-between items-center h-[calc(100vh-136px)] mt-8 lg:mt-0">
@@ -18,7 +20,7 @@ function notFound() {
               className="lg:order-1 order-4"
             >
               <Image
-                src={GeneralsData.logo}
+                src={generals ? generals.logo : "/"}
                 alt={`${process.env.NEXT_PUBLIC_SITE_NAME}`}
                 title={process.env.NEXT_PUBLIC_SITE_NAME}
                 width={375}

@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import SocialsData from "@/data/socials.json";
-import generalsData from "@/data/generals.json";
+import { getGenerals } from "@/utils/getGenerals";
+import { GeneralsTypes } from "@/Types";
 import { AboutSocials } from "@/components/inc/Header/Items/SocialItem";
 import Link from "next/link";
 
@@ -9,8 +10,9 @@ interface AboutProps {
   botTransparent?: boolean;
 }
 
-function About({ botTransparent }: AboutProps) {
-  const phoneSlug = generalsData.phone.replace(/\s/g, "");
+async function About({ botTransparent }: AboutProps) {
+  const generals : GeneralsTypes = await getGenerals();
+  const phoneSlug = generals?.phone.replace(/\s/g, "");
   return (
     <section className="relative z-10">
       <div className="container mx-auto lg:py-24 py-8 flex lg:flex-row gap-x-28 lg:gap-y-0 gap-y-8 flex-col-reverse">
@@ -20,27 +22,27 @@ function About({ botTransparent }: AboutProps) {
             sizes="(max-width: 768px) 100vw, 30vw"
             fill
             priority
-            alt={generalsData.fullName}
-            title={generalsData.fullName}
+            alt={generals ? generals.fullName : "Fotoğraf"}
+            title={generals?.fullName}
             className="object-cover object-center lg:rounded-3xl lg:ml-10 lg:mt-10 shadow-lg shadow-gray-300 group-hover:lg:ml-0 group-hover:lg:mt-0 group-hover:lg:scale-110 transition-all"
           />
         </div>
         <div className="flex-1 flex flex-col lg:gap-y-8 gap-y-6 lg:px-0 px-4">
           <strong className="font-gemunu text-3xl opacity-50">HAKKIMDA</strong>
           <h1 className="text-3xl lg:text-5xl font-dancing tracking-wide min-w-fit">
-            {generalsData.fullName}
+            {generals?.fullName}
           </h1>
 
           <p className="lg:text-lg text-md leading-8">
-            Merhaba, ben {generalsData.fullName}, {generalsData.graduationYear}{" "}
-            yılında {generalsData.university} {generalsData.branch} bölümünden
-            mezun oldum. Danışanlarıma, {generalsData.district}/
-            {generalsData.city} bölgesinde bulunan ofisimde hizmet vermekteyim.
+            Merhaba, ben {generals?.fullName}, {generals?.graduationYear}{" "}
+            yılında {generals?.university} {generals?.branch} bölümünden
+            mezun oldum. Danışanlarıma, {generals?.district}/
+            {generals?.city} bölgesinde bulunan ofisimde hizmet vermekteyim.
             Ulaşım ve randevu için{" "}
             <Link
               href="/hakkimda"
               className="text-site font-gemunu text-xl tracking-wider"
-              title={`${generalsData.fullName} İletişim`}
+              title={`${generals?.fullName} İletişim`}
             >
               İletişim
             </Link>{" "}
@@ -48,7 +50,7 @@ function About({ botTransparent }: AboutProps) {
           </p>
 
           <p className="lg:text-lg text-md leading-8">
-            {generalsData.city} diyetisyeni olarak sağlıklı yaşam konusunda
+            {generals?.city} diyetisyeni olarak sağlıklı yaşam konusunda
             güvenilir ve uzman diyetisyeni olarak sizlere hizmet vermekten
             mutluluk duyuyorum. Beslenme ve diyet konusunda uzmanlaşmış bir
             profesyonel olarak, kişisel hedeflerinize ulaşmanızda size rehberlik
@@ -66,7 +68,7 @@ function About({ botTransparent }: AboutProps) {
             hizmeti de vermekteyim. Online diyet ücretleri ve diyetiyetisyen
             ücretleri hakkında daha fazla bilgi edinmek için bana
             <Link
-              href={`https://api.whatsapp.com/send?phone=+9${phoneSlug}&text=${generalsData.wpMessage}`}
+              href={`https://api.whatsapp.com/send?phone=+9${phoneSlug}&text=${generals?.wpMessage}`}
               target="_blank"
               title="WhatsApp"
               className="text-site font-gemunu text-xl tracking-wider"

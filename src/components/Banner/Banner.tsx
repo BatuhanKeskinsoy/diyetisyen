@@ -1,12 +1,11 @@
-"use client"
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import bannersData from "@/data/banners.json";
 import Item from "./Item";
 import Slider, { Settings } from "react-slick";
-
 function Banner() {
 
-  const settings : Settings = {
+  const settings: Settings = {
     dots: false,
     arrows: false,
     infinite: true,

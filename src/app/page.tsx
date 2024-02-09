@@ -5,7 +5,8 @@ import About from "@/components/About/About";
 import Blog from "@/components/Blog/Blog";
 import Iletisim from "@/components/Contact/Contact";
 
-function page() {
+async function page() {
+
   return (
     <>
       <Banner />
@@ -17,4 +18,4 @@ function page() {
   );
 }
 
-export default page
+export default page;

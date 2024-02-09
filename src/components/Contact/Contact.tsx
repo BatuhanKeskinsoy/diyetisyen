@@ -1,5 +1,6 @@
 import React from "react";
-import GeneralsData from "@/data/generals.json";
+import { getGenerals } from "@/utils/getGenerals";
+import { GeneralsTypes } from "@/Types";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import SocialsData from "@/data/socials.json";
@@ -10,16 +11,30 @@ interface ContactProps {
   forHome?: boolean;
 }
 
-function Contact({ forHome }: ContactProps) {
-  const phoneSlug = GeneralsData.phone.replace(/\s/g, "");
+function AddressMap({ src }: { src: string }) {
+  return (
+    <div className="w-full overflow-hidden flex-1">
+      <iframe
+        loading="lazy"
+        src={src}
+        width="100%"
+        height="750"
+        style={{ border: 0 }}
+        allowFullScreen
+        title="Konum Haritada Görüntüsü"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  );
+}
+
+async function Contact({ forHome }: ContactProps) {
+  const generals: GeneralsTypes = await getGenerals();
+  const phoneSlug = generals?.phone.replace(/\s/g, "");
 
   return (
     <section className="relative z-10 w-full h-full flex lg:flex-row flex-col bg-gray-100">
-      <div
-        className="w-full overflow-hidden flex-1"
-        dangerouslySetInnerHTML={{ __html: GeneralsData.addressIframe }}
-      ></div>
-
+      <AddressMap src={`${generals?.addressIframe}`} />
       <div className="relative flex-1">
         <div className="lg:px-8 px-4 flex justify-center items-center h-full">
           <div className="flex flex-col w-full justify-between items-start gap-x-8  px-4 rounded-xl">
@@ -35,7 +50,7 @@ function Contact({ forHome }: ContactProps) {
                   </h1>
                 )}
                 <Link
-                  href={`https://api.whatsapp.com/send?phone=+9${phoneSlug}&text=${GeneralsData.wpMessage}`}
+                  href={`https://api.whatsapp.com/send?phone=+9${phoneSlug}&text=${generals?.wpMessage}`}
                   target="_blank"
                   title="WhatsApp'tan Ulaşın"
                   className="flex items-center justify-between rounded-xl px-6 gap-x-2 transition-all bg-green-500 hover:bg-green-400 text-white py-3"
@@ -52,9 +67,9 @@ function Contact({ forHome }: ContactProps) {
 
               <address className="font-open not-italic tracking-wide text-sm flex lg:flex-row flex-col gap-x-8 lg:gap-y-0 gap-y-8 h-full w-full">
                 <Link
-                  href={GeneralsData.addressUrl}
+                  href={generals ? generals.addressUrl : "/"}
                   target="_blank"
-                  title={GeneralsData.address}
+                  title={generals?.address}
                   className="flex flex-col items-center text-center justify-between gap-y-3 flex-1 w-full group overflow-hidden"
                 >
                   <BsSignpost2
@@ -62,7 +77,7 @@ function Contact({ forHome }: ContactProps) {
                     className="text-customSecondary-400 group-hover:text-site transition-all"
                   />
                   <span className="lg:text-lg text-base p-4 text-gray-600">
-                    {GeneralsData.address}
+                    {generals?.address}
                   </span>
                   <div className="flex items-center gap-x-2 px-6 py-3 my-4 bg-white shadow-lg shadow-gray-200 group-hover:bg-site group-hover:text-white font-gemunu text-lg lg:text-xl tracking-wider min-w-fit rounded-lg transition-all w-full justify-center mx-auto">
                     Haritada Gör
@@ -71,7 +86,7 @@ function Contact({ forHome }: ContactProps) {
 
                 <Link
                   href={`tel:${phoneSlug}`}
-                  title={GeneralsData.phone}
+                  title={generals?.phone}
                   className="flex flex-col items-center text-center justify-between gap-y-3 flex-1 w-full group overflow-hidden"
                 >
                   <BsTelephoneInbound
@@ -79,15 +94,15 @@ function Contact({ forHome }: ContactProps) {
                     className="text-customSecondary-400 group-hover:text-site transition-all"
                   />
                   <span className="lg:text-lg text-base p-4 text-gray-600">
-                    {GeneralsData.phone}
+                    {generals?.phone}
                   </span>
                   <div className="flex items-center gap-x-2 px-6 py-3 my-4 bg-white shadow-lg shadow-gray-200 group-hover:bg-site group-hover:text-white font-gemunu text-lg lg:text-xl tracking-wider min-w-fit rounded-lg transition-all w-full justify-center mx-auto">
                     Hemen Ara
                   </div>
                 </Link>
                 <Link
-                  href={`mailto:${GeneralsData.email}`}
-                  title={GeneralsData.email}
+                  href={`mailto:${generals?.email}`}
+                  title={generals?.email}
                   className="flex flex-col items-center text-center justify-between gap-y-3 flex-1 w-full group overflow-hidden"
                 >
                   <BsEnvelopeAt
@@ -95,7 +110,7 @@ function Contact({ forHome }: ContactProps) {
                     className="text-customSecondary-400 group-hover:text-site transition-all"
                   />
                   <span className="lg:text-lg text-base p-4 text-gray-600 break-all">
-                    {GeneralsData.email}
+                    {generals?.email}
                   </span>
                   <div className="flex items-center gap-x-2 px-6 py-3 my-4 bg-white shadow-lg shadow-gray-200 group-hover:bg-site group-hover:text-white font-gemunu text-lg lg:text-xl tracking-wider min-w-fit rounded-lg transition-all w-full justify-center mx-auto">
                     Mail Gönder
@@ -113,7 +128,7 @@ function Contact({ forHome }: ContactProps) {
                   </h2>
                 )}
                 <ul className="flex gap-6 flex-wrap lg:justify-start justify-center">
-                  {SocialsData.map((data : any, key : any) => (
+                  {SocialsData.map((data: any, key: any) => (
                     <ContactSocials
                       socialUrl={data.socialUrl}
                       socialName={data.socialName}
