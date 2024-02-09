@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MetaFavicon() {
+export default async function MetaFavicon() {
     return (
         <head>
             <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png" />
@@ -23,5 +23,3 @@ function MetaFavicon() {
         </head>
     )
 }
-
-export default MetaFavicon

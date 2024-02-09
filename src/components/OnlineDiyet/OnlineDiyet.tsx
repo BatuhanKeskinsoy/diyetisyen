@@ -3,10 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { IoMailOutline, IoPhonePortraitOutline } from 'react-icons/io5'
 import { FaWhatsapp } from 'react-icons/fa'
-import GeneralsData from '@/data/generals.json'
+import { getGenerals } from "@/utils/getGenerals";
+import { GeneralsTypes } from "@/Types";
 
-function OnlineDiyet() {
-    const phoneSlug = GeneralsData.phone.replace(/\s/g, '');
+
+async function OnlineDiyet() {
+    const generals: GeneralsTypes = await getGenerals();
+    const phoneSlug = generals?.phone.replace(/\s/g, '');
     return (
         <div className='lg:pt-20 lg:pb-32 pt-12 pb-16 relative bg-black-900/70 overflow-hidden'>
             <Image
@@ -23,7 +26,7 @@ function OnlineDiyet() {
                 <p className='lg:text-2xl text-xl'>Online diyet hizmeti veya diğer hizmetler hakkında daha fazla bilgi almak için aşağıdaki butonlardan bana ulaşabilirsiniz.</p>
                 <address className="flex flex-wrap lg:flex-row flex-col gap-6 not-italic">
                     <Link
-                        href={`https://api.whatsapp.com/send?phone=+9${phoneSlug}&text=${GeneralsData.wpMessage}`}
+                        href={`https://api.whatsapp.com/send?phone=+9${phoneSlug}&text=${generals?.wpMessage}`}
                         target='_blank'
                         title="WhatsApp'tan Mesaj Gönderin"
                         className='flex items-center justify-between rounded-xl lg:w-fit w-full py-4 lg:px-6 px-4 gap-x-2 bg-green-500 hover:bg-green-400 transition-all'
@@ -40,7 +43,7 @@ function OnlineDiyet() {
                         <span className='lg:text-2xl text-xl font-gemunu tracking-wide text-white'>Hemen Arayın</span>
                     </Link>
                     <Link
-                        href={`mailto:${GeneralsData.email}`}
+                        href={`mailto:${generals?.email}`}
                         title="E-Mail Gönderin"
                         className='flex items-center justify-between rounded-xl lg:w-fit w-full py-4 lg:px-6 px-4 gap-x-2 bg-orange-500 hover:bg-orange-400 transition-all'
                     >

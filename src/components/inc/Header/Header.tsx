@@ -41,11 +41,11 @@ function Header({ generals }: { generals: GeneralsTypes }) {
         <div className="bg-botTransparent w-full bg-bottom absolute top-[99%] h-12"></div>
         <div id="headerTop" className="bg-customSecondary-900 text-gray-200">
           <div className="container mx-auto items-center justify-between h-12 lg:flex hidden">
-            <NavTopGenerals phoneSlug={phoneSlug} GeneralsData={generals} />
+            <NavTopGenerals phoneSlug={phoneSlug} generals={generals} />
 
             <div className="flex h-full">
               <NavTopSocials SocialsData={SocialsData} />
-              <NavTopWhatsApp phoneSlug={phoneSlug} GeneralsData={generals} />
+              <NavTopWhatsApp phoneSlug={phoneSlug} generals={generals} />
             </div>
           </div>
         </div>

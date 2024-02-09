@@ -2,10 +2,10 @@ import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 
-function NavTopWhatsApp({ phoneSlug, GeneralsData }: any) {
+function NavTopWhatsApp({ phoneSlug, generals }: any) {
   return (
     <Link
-      href={`https://api.whatsapp.com/send?phone=+9${phoneSlug}&text=${GeneralsData.wpMessage}`}
+      href={`https://api.whatsapp.com/send?phone=+9${phoneSlug}&text=${generals.wpMessage}`}
       target="_blank"
       title="WhatsApp"
       className="h-full flex items-center justify-center px-4 gap-x-2 bg-green-500 hover:bg-green-400 transition-all"

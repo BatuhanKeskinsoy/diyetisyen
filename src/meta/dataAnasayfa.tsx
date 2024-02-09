@@ -1,7 +1,7 @@
 import { getGenerals } from "@/utils/getGenerals";
 import { GeneralsTypes } from "@/Types";
 
-async function dataAnasayfa() {
+export default async function dataAnasayfa() {
   const generals: GeneralsTypes = await getGenerals();
 
   return {
@@ -31,5 +31,3 @@ async function dataAnasayfa() {
     twitterId: "@batuhankesk",
   };
 }
-
-export default dataAnasayfa;

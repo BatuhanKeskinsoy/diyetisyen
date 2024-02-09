@@ -1,4 +1,5 @@
-import generalsData from "@/data/generals.json";
+import { getGenerals } from "@/utils/getGenerals";
+import { GeneralsTypes } from "@/Types";
 
 type serviceDetailTypes = {
     id: number;
@@ -12,7 +13,8 @@ type serviceDetailTypes = {
     date: string;
 } | undefined;
 
-export function dataHizmetlerimizDetay(service: serviceDetailTypes, slug: string) {
+export default async function dataHizmetlerimizDetay(service: serviceDetailTypes, slug: string) {
+    const generals: GeneralsTypes = await getGenerals();
     return {
         siteName: process.env.NEXT_PUBLIC_SITE_NAME,
         siteUrl: process.env.NEXT_PUBLIC_SITE_URL
@@ -26,10 +28,10 @@ export function dataHizmetlerimizDetay(service: serviceDetailTypes, slug: string
         Image: service?.image,
         currentPathUrl: `/hizmetlerimiz/${slug}`,
         Robots: "index, follow",
-        Publisher: generalsData.fullName,
+        Publisher: generals?.fullName,
         Creator: "Batuhan Keskinsoy",
         Author: [
-            { name: generalsData.fullName, url: process.env.NEXT_PUBLIC_SITE_NAME },
+            { name: generals?.fullName, url: process.env.NEXT_PUBLIC_SITE_NAME },
         ],
         Locale: "tr_TR",
         twitterId: "@batuhankesk",

@@ -7,43 +7,43 @@ import {
   IoMailOutline,
 } from "react-icons/io5";
 
-function NavTopGenerals({ phoneSlug, GeneralsData }: any) {
+function NavTopGenerals({ phoneSlug, generals }: any) {
   return (
     <address className="font-open not-italic tracking-wide text-sm flex gap-x-4 h-full">
       <div className="flex items-center gap-x-1">
         <Link
-          href={GeneralsData.addressUrl}
-          title={GeneralsData.address}
+          href={generals.addressUrl}
+          title={generals.address}
           target="_blank"
           className="flex items-center gap-x-1 group"
         >
           <IoLocationOutline size={22} className="text-site " />
           <span className="group-hover:text-site transition-all">
-            {GeneralsData.address}
+            {generals.address}
           </span>
         </Link>
       </div>
       <div className="flex items-center gap-x-1">
         <Link
           href={`tel:${phoneSlug}`}
-          title={GeneralsData.phone}
+          title={generals.phone}
           className="flex items-center gap-x-1 group"
         >
           <IoPhonePortraitOutline size={22} className="text-site" />
           <span className="group-hover:text-site transition-all">
-            {GeneralsData.phone}
+            {generals.phone}
           </span>
         </Link>
       </div>
       <div className="flex items-center gap-x-1">
         <Link
-          href={`mailto:${GeneralsData.email}`}
-          title={GeneralsData.email}
+          href={`mailto:${generals.email}`}
+          title={generals.email}
           className="flex items-center gap-x-1 group"
         >
           <IoMailOutline size={22} className="text-site" />
           <span className="group-hover:text-site transition-all">
-            {GeneralsData.email}
+            {generals.email}
           </span>
         </Link>
       </div>

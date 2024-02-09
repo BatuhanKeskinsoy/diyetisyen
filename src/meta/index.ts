@@ -1,24 +1,25 @@
-import fetchDataAnasayfa from "./dataAnasayfa";
-import { dataBlog } from "./dataBlog";
-import { data404 } from "./data404";
+import dataAnasayfa from "./dataAnasayfa";
+import dataBlog from "./dataBlog";
 import { Metadata } from "next";
-import { dataBlogDetay } from "./dataBlogDetay";
-import { dataHakkimda } from "./dataHakkimda";
-import { dataHesaplamalarDetay } from "./dataHesaplamalarDetay";
-import { dataHizmetlerimizDetay } from "./dataHizmetlerDetay";
-import { dataIletisim } from "./dataIletisim";
-import { dataOnlineDiyet } from "./dataOnlineDiyet";
+import data404 from "./data404";
+import dataBlogDetay from "./dataBlogDetay";
+import dataHakkimda from "./dataHakkimda";
+import dataHesaplamalarDetay from "./dataHesaplamalarDetay";
+import dataHizmetlerimizDetay from "./dataHizmetlerDetay";
+import dataIletisim from "./dataIletisim";
+import dataOnlineDiyet from "./dataOnlineDiyet";
 
-export const meta404 = (): Metadata => {
+export const meta404 = async (): Promise<Metadata> => {
+  const meta = await data404();
   return {
-    title: data404.Title,
-    description: data404.Description,
-    robots: data404.Robots,
+    title: meta.Title,
+    description: meta.Description,
+    robots: meta.Robots,
   };
 };
 
 export const metaAnasayfa = async (): Promise<Metadata> => {
-  const meta = await fetchDataAnasayfa();
+  const meta = await dataAnasayfa();
   return {
     metadataBase: new URL(meta.siteUrl),
     title: meta.Title,
@@ -50,8 +51,8 @@ export const metaAnasayfa = async (): Promise<Metadata> => {
   };
 };
 
-export const metaBlog = (): Metadata => {
-  const meta = dataBlog;
+export const metaBlog = async (): Promise<Metadata> => {
+  const meta = await dataBlog();
   return {
     title: meta.Title,
     description: meta.Description,
@@ -82,40 +83,8 @@ export const metaBlog = (): Metadata => {
   };
 };
 
-export const metaHakkimda = (): Metadata => {
-  const meta = dataHakkimda;
-  return {
-    title: meta.Title,
-    description: meta.Description,
-    keywords: meta.Keywords,
-    robots: meta.Robots,
-    authors: meta.Author,
-    creator: meta.Creator,
-    publisher: meta.Publisher,
-    
-    alternates: {
-      canonical: `${meta.siteUrl}${meta.currentPathUrl}`,
-    },
-    openGraph: {
-      title: meta.Title,
-      description: meta.Description,
-      url: meta.siteUrl,
-      siteName: meta.siteName,
-      images: `${meta.siteUrl}${meta.Image}`,
-      type: "website",
-      locale: meta.Locale,
-    },
-    twitter: {
-      title: meta.Title,
-      site: meta.twitterId,
-      creator: meta.Publisher,
-      images: `${meta.siteUrl}${meta.Image}`,
-    },
-  };
-};
-
-export const metaIletisim = (): Metadata => {
-  const meta = dataIletisim;
+export const metaHakkimda = async (): Promise<Metadata> => {
+  const meta = await dataHakkimda();
   return {
     title: meta.Title,
     description: meta.Description,
@@ -147,8 +116,41 @@ export const metaIletisim = (): Metadata => {
 };
 
 
-export const metaOnlineDiyet = (): Metadata => {
-  const meta = dataOnlineDiyet;
+export const metaIletisim = async (): Promise<Metadata> => {
+  const meta = await dataIletisim();
+  return {
+    title: meta.Title,
+    description: meta.Description,
+    keywords: meta.Keywords,
+    robots: meta.Robots,
+    authors: meta.Author,
+    creator: meta.Creator,
+    publisher: meta.Publisher,
+    
+    alternates: {
+      canonical: `${meta.siteUrl}${meta.currentPathUrl}`,
+    },
+    openGraph: {
+      title: meta.Title,
+      description: meta.Description,
+      url: meta.siteUrl,
+      siteName: meta.siteName,
+      images: `${meta.siteUrl}${meta.Image}`,
+      type: "website",
+      locale: meta.Locale,
+    },
+    twitter: {
+      title: meta.Title,
+      site: meta.twitterId,
+      creator: meta.Publisher,
+      images: `${meta.siteUrl}${meta.Image}`,
+    },
+  };
+};
+
+
+export const metaOnlineDiyet = async (): Promise<Metadata> => {
+  const meta = await dataOnlineDiyet();
   return {
     title: meta.Title,
     description: meta.Description,
@@ -179,8 +181,8 @@ export const metaOnlineDiyet = (): Metadata => {
   };
 };
 
-export const metaBlogDetay = (blog: any, slug: string): Metadata => {
-  const meta = dataBlogDetay(blog, slug);
+export const metaBlogDetay = async (blog: any, slug: string): Promise<Metadata> => {
+  const meta = await dataBlogDetay(blog, slug);
   return {
     title: meta.Title,
     description: meta.Description,
@@ -212,8 +214,8 @@ export const metaBlogDetay = (blog: any, slug: string): Metadata => {
   };
 };
 
-export const metaHesaplamalarDetay = (calculation: any, slug: string): Metadata => {
-  const meta = dataHesaplamalarDetay(calculation, slug);
+export const metaHesaplamalarDetay = async (calculation: any, slug: string): Promise<Metadata> => {
+  const meta = await dataHesaplamalarDetay(calculation, slug);
   return {
     title: meta.Title,
     description: meta.Description,
@@ -244,9 +246,8 @@ export const metaHesaplamalarDetay = (calculation: any, slug: string): Metadata 
     },
   };
 };
-
-export const metaHizmetlerimizDetay = (service: any, slug: string): Metadata => {
-  const meta = dataHizmetlerimizDetay(service, slug);
+export const metaHizmetlerimizDetay = async (service: any, slug: string): Promise<Metadata> => {
+  const meta = await dataHizmetlerimizDetay(service, slug);
   return {
     title: meta.Title,
     description: meta.Description,
