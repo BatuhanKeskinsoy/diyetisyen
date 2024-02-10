@@ -6,12 +6,16 @@ import Link from "next/link";
 import NavTopGenerals from "./NavTop/Generals";
 import NavTopWhatsApp from "./NavTop/WhatsApp";
 import NavTopSocials from "./NavTop/Socials";
-import { GeneralsTypes } from "@/Types";
-import SocialsData from "@/data/socials.json";
+import { GeneralsTypes, SocialsTypes } from "@/Types";
 import NavLinks from "./NavLinks";
 import Loading from "@/components/Other/Loading";
 
-function Header({ generals }: { generals: GeneralsTypes }) {
+interface IHeaderProps {
+  generals: GeneralsTypes;
+  socials: SocialsTypes[];
+}
+
+function Header({ generals, socials }: IHeaderProps) {
   const [navStatus, setNavStatus] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -44,7 +48,7 @@ function Header({ generals }: { generals: GeneralsTypes }) {
             <NavTopGenerals phoneSlug={phoneSlug} generals={generals} />
 
             <div className="flex h-full">
-              <NavTopSocials SocialsData={SocialsData} />
+              <NavTopSocials socials={socials} />
               <NavTopWhatsApp phoneSlug={phoneSlug} generals={generals} />
             </div>
           </div>

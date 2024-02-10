@@ -115,7 +115,6 @@ export const metaHakkimda = async (): Promise<Metadata> => {
   };
 };
 
-
 export const metaIletisim = async (): Promise<Metadata> => {
   const meta = await dataIletisim();
   return {
@@ -147,7 +146,6 @@ export const metaIletisim = async (): Promise<Metadata> => {
     },
   };
 };
-
 
 export const metaOnlineDiyet = async (): Promise<Metadata> => {
   const meta = await dataOnlineDiyet();
@@ -246,6 +244,7 @@ export const metaHesaplamalarDetay = async (calculation: any, slug: string): Pro
     },
   };
 };
+
 export const metaHizmetlerimizDetay = async (service: any, slug: string): Promise<Metadata> => {
   const meta = await dataHizmetlerimizDetay(service, slug);
   return {

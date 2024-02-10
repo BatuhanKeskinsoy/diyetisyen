@@ -1,18 +1,28 @@
 import React from "react";
 import { SocialsItem } from "@/components/inc/Header/Items/SocialItem";
+import { getSocials } from "@/utils/getSocials";
+import { SocialsTypes } from "@/Types";
 
-function NavTopSocials({ SocialsData }: any) {
+interface INavTopSocialsProps {
+  socials: SocialsTypes[]
+}
+
+function NavTopSocials({ socials }: INavTopSocialsProps) {
   return (
-    <ul id="socials" className="flex h-full">
-      {SocialsData.map((data : any, key: number) => (
-        <SocialsItem
-          socialUrl={data.socialUrl}
-          iconName={data.iconName}
-          key={key}
-          socialName={data.socialName}
-        />
-      ))}
-    </ul>
+    <>
+      {socials && (
+        <ul id="socials" className="flex h-full">
+          {socials.map((social: SocialsTypes, key: number) => (
+            <SocialsItem
+              socialUrl={social.socialUrl}
+              iconName={social.iconName}
+              key={key}
+              socialName={social.socialName}
+            />
+          ))}
+        </ul>
+      )}
+    </>
   );
 }
 

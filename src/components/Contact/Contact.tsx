@@ -1,14 +1,14 @@
 import React from "react";
-import { getGenerals } from "@/utils/getGenerals";
-import { GeneralsTypes } from "@/Types";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
-import SocialsData from "@/data/socials.json";
+import { GeneralsTypes, SocialsTypes } from "@/Types";
 import { ContactSocials } from "../inc/Header/Items/SocialItem";
 import { BsEnvelopeAt, BsSignpost2, BsTelephoneInbound } from "react-icons/bs";
 
-interface ContactProps {
+interface IContactProps {
   forHome?: boolean;
+  socials: SocialsTypes[];
+  generals: GeneralsTypes;
 }
 
 function AddressMap({ src }: { src: string }) {
@@ -28,8 +28,7 @@ function AddressMap({ src }: { src: string }) {
   );
 }
 
-async function Contact({ forHome }: ContactProps) {
-  const generals: GeneralsTypes = await getGenerals();
+async function Contact({ forHome, generals, socials }: IContactProps) {
   const phoneSlug = generals?.phone.replace(/\s/g, "");
 
   return (
@@ -117,27 +116,29 @@ async function Contact({ forHome }: ContactProps) {
                   </div>
                 </Link>
               </address>
-              <div className="lg:mb-0 mb-12 lg:mt-8">
-                {forHome ? (
-                  <h4 className="text-xl lg:text-2xl font-gemunu tracking-wider block my-8 lg:my-0 lg:mb-8 lg:text-left text-center">
-                    Sosyal Medya
-                  </h4>
-                ) : (
-                  <h2 className="text-3xl lg:text-4xl font-dancing tracking-wider block my-8 lg:my-0 lg:mb-8  lg:text-left text-center">
-                    Sosyal Medya
-                  </h2>
-                )}
-                <ul className="flex gap-6 flex-wrap lg:justify-start justify-center">
-                  {SocialsData.map((data: any, key: any) => (
-                    <ContactSocials
-                      socialUrl={data.socialUrl}
-                      socialName={data.socialName}
-                      iconName={data.iconName}
-                      key={key}
-                    />
-                  ))}
-                </ul>
-              </div>
+              {socials && (
+                <div className="lg:mb-0 mb-12 lg:mt-8">
+                  {forHome ? (
+                    <h4 className="text-xl lg:text-2xl font-gemunu tracking-wider block my-8 lg:my-0 lg:mb-8 lg:text-left text-center">
+                      Sosyal Medya
+                    </h4>
+                  ) : (
+                    <h2 className="text-3xl lg:text-4xl font-dancing tracking-wider block my-8 lg:my-0 lg:mb-8  lg:text-left text-center">
+                      Sosyal Medya
+                    </h2>
+                  )}
+                  <ul className="flex gap-6 flex-wrap lg:justify-start justify-center">
+                    {socials.map((social: SocialsTypes, key: any) => (
+                      <ContactSocials
+                        socialUrl={social.socialUrl}
+                        socialName={social.socialName}
+                        iconName={social.iconName}
+                        key={key}
+                      />
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </div>

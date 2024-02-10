@@ -1,17 +1,16 @@
 import React from "react";
 import Image from "next/image";
-import SocialsData from "@/data/socials.json";
-import { getGenerals } from "@/utils/getGenerals";
-import { GeneralsTypes } from "@/Types";
+import { SocialsTypes, GeneralsTypes } from "@/Types";
 import { AboutSocials } from "@/components/inc/Header/Items/SocialItem";
 import Link from "next/link";
 
-interface AboutProps {
+interface IAboutProps {
   botTransparent?: boolean;
+  generals: GeneralsTypes;
+  socials: SocialsTypes[];
 }
 
-async function About({ botTransparent }: AboutProps) {
-  const generals : GeneralsTypes = await getGenerals();
+async function About({ botTransparent, generals, socials }: IAboutProps) {
   const phoneSlug = generals?.phone.replace(/\s/g, "");
   return (
     <section className="relative z-10">
@@ -35,10 +34,10 @@ async function About({ botTransparent }: AboutProps) {
 
           <p className="lg:text-lg text-md leading-8">
             Merhaba, ben {generals?.fullName}, {generals?.graduationYear}{" "}
-            yılında {generals?.university} {generals?.branch} bölümünden
-            mezun oldum. Danışanlarıma, {generals?.district}/
-            {generals?.city} bölgesinde bulunan ofisimde hizmet vermekteyim.
-            Ulaşım ve randevu için{" "}
+            yılında {generals?.university} {generals?.branch} bölümünden mezun
+            oldum. Danışanlarıma, {generals?.district}/{generals?.city}{" "}
+            bölgesinde bulunan ofisimde hizmet vermekteyim. Ulaşım ve randevu
+            için{" "}
             <Link
               href="/hakkimda"
               className="text-site font-gemunu text-xl tracking-wider"
@@ -76,22 +75,26 @@ async function About({ botTransparent }: AboutProps) {
               {" "}
               WhatsApp&#39;tan{" "}
             </Link>{" "}
-            veya aşağıdaki sosyal medya bağlantılarımdan ulaşabilirsiniz.{" "}
+            {!socials ? "ulaşabilirsiniz." : `veya aşağıdaki sosyal medya bağlantılarımdan ulaşabilirsiniz.`}{" "}
           </p>
 
-          <strong className="font-gemunu tracking-wide text-2xl">
-            Sosyal Medya Adreslerim
-          </strong>
-          <ul className="flex gap-6 flex-wrap lg:justify-start justify-center">
-            {SocialsData.map((data, key) => (
-              <AboutSocials
-                socialUrl={data.socialUrl}
-                socialName={data.socialName}
-                iconName={data.iconName}
-                key={key}
-              />
-            ))}
-          </ul>
+          {socials && (
+            <>
+              <strong className="font-gemunu tracking-wide text-2xl">
+                Sosyal Medya Adreslerim
+              </strong>
+              <ul className="flex gap-6 flex-wrap lg:justify-start justify-center">
+                {socials.map((social: SocialsTypes, key) => (
+                  <AboutSocials
+                    socialUrl={social?.socialUrl || ""}
+                    socialName={social?.socialName || ""}
+                    iconName={social?.iconName || ""}
+                    key={key}
+                  />
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </div>
 

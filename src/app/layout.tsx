@@ -9,7 +9,8 @@ import "@/styles/slick.min.css";
 import MetaFavicon from "@/meta/Favicon";
 import { metaAnasayfa } from "@/meta";
 import { getGenerals } from "@/utils/getGenerals";
-import { GeneralsTypes } from "@/Types";
+import { GeneralsTypes, SocialsTypes } from "@/Types";
+import { getSocials } from "@/utils/getSocials";
 
 export const metadata = metaAnasayfa();
 
@@ -18,15 +19,16 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const socials: SocialsTypes[] = (await getSocials()) || [];
   const generals: GeneralsTypes = await getGenerals();
   return (
     <html lang="tr">
       <MetaFavicon />
       <body>
         <AutoScrollTop />
-        <Header generals={generals} />
+        <Header generals={generals} socials={socials} />
         {children}
-        <Footer />
+        <Footer generals={generals} socials={socials} />
         <FixedScrollTop />
       </body>
     </html>

@@ -1,10 +1,14 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import bannersData from "@/data/banners.json";
+import React from "react";
 import Item from "./Item";
 import Slider, { Settings } from "react-slick";
-function Banner() {
+import { BannersTypes } from "@/Types";
 
+interface IBannerProps {
+  banners: BannersTypes[] | null;
+}
+
+function Banner({ banners }: IBannerProps) {
   const settings: Settings = {
     dots: false,
     arrows: false,
@@ -15,23 +19,27 @@ function Banner() {
   };
 
   return (
-    <section id="bannerSection" className="relative">
-      <Slider {...settings}>
-        {bannersData.map((bannerItem, index) => (
-          <Item
-            key={bannerItem.id}
-            image={bannerItem.image}
-            title={bannerItem.title}
-            description={bannerItem.description}
-            btnText={bannerItem.btnText}
-            btnActive={bannerItem.btnActive}
-            btnUrl={bannerItem.btnUrl}
-            isFirstItem={index === 0}
-          />
-        ))}
-      </Slider>
-      <div className="bg-topTransparent w-full bg-top absolute bottom-0 h-12"></div>
-    </section>
+    <>
+      {banners && (
+        <section id="bannerSection" className="relative">
+          <Slider {...settings}>
+            {banners.map((bannerItem, index) => (
+              <Item
+                key={bannerItem.id}
+                image={bannerItem.image}
+                title={bannerItem.title}
+                description={bannerItem.description}
+                btnText={bannerItem.btnText}
+                btnActive={bannerItem.btnActive}
+                btnUrl={bannerItem.btnUrl}
+                isFirstItem={index === 0}
+              />
+            ))}
+          </Slider>
+          <div className="bg-topTransparent w-full bg-top absolute bottom-0 h-12"></div>
+        </section>
+      )}
+    </>
   );
 }
 

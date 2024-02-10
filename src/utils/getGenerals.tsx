@@ -4,13 +4,10 @@ import { GeneralsTypes } from "@/Types";
 
 const db = getFirestore(app);
 
-export const getGenerals = async () => {
+export const getGenerals = async (): Promise<GeneralsTypes | null> => {
   const querySnapshot = await getDocs(collection(db, "generals"));
-  if (querySnapshot.empty) {
-    return null;
-  } else {
-    const doc = querySnapshot.docs[0];
-    const data = doc.data() as GeneralsTypes;
-    return data;
-  }
+  const data: GeneralsTypes[] = querySnapshot.docs.map(
+    (doc) => doc.data() as GeneralsTypes
+  );
+  return data.length > 0 ? data[0] : null;
 };
