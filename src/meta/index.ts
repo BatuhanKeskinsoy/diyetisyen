@@ -2,6 +2,7 @@ import dataAnasayfa from "./dataAnasayfa";
 import dataBlog from "./dataBlog";
 import { Metadata } from "next";
 import data404 from "./data404";
+import dataAuth from "./dataAuth";
 import dataBlogDetay from "./dataBlogDetay";
 import dataHakkimda from "./dataHakkimda";
 import dataHesaplamalarDetay from "./dataHesaplamalarDetay";
@@ -275,5 +276,14 @@ export const metaHizmetlerimizDetay = async (service: any, slug: string): Promis
       creator: meta.Publisher,
       images: `${meta.siteUrl}${meta.Image}`,
     },
+  };
+};
+
+export const metaAuth = async (): Promise<Metadata> => {
+  const meta = await dataAuth();
+  return {
+    title: meta.Title,
+    description: meta.Description,
+    robots: meta.Robots,
   };
 };

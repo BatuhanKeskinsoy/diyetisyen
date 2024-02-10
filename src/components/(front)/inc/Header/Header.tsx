@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,6 @@ import NavTopWhatsApp from "./NavTop/WhatsApp";
 import NavTopSocials from "./NavTop/Socials";
 import { GeneralsTypes, SocialsTypes } from "@/Types";
 import NavLinks from "./NavLinks";
-import Loading from "@/components/Global/Loading";
 import { useGlobalContext } from "@/app/Context/store";
 
 interface IHeaderProps {
