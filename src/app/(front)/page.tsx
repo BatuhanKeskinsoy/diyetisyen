@@ -1,9 +1,9 @@
 import React from "react";
-import Banner from "@/components/Banner/Banner";
-import Gallery from "@/components/Gallery/Gallery";
-import About from "@/components/About/About";
-import Blog from "@/components/Blog/Blog";
-import Iletisim from "@/components/Contact/Contact";
+import Banner from "@/components/(front)/Banner/Banner";
+import Gallery from "@/components/(front)/Gallery/Gallery";
+import About from "@/components/(front)/About/About";
+import Blog from "@/components/(front)/Blog/Blog";
+import Iletisim from "@/components/(front)/Contact/Contact";
 import { getBanners } from "@/utils/getBanners";
 import { BannersTypes, GeneralsTypes, SocialsTypes } from "@/Types";
 import { getSocials } from "@/utils/getSocials";

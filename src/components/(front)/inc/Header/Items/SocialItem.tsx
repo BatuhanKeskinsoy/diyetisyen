@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import iconMappings from "@/components/Other/IconMappings";
+import iconMappings from "@/components/Global/IconMappings";
 import { SocialsTypes } from "@/Types";
 
 function SocialsItem({ socialUrl, iconName, socialName }: SocialsTypes) {

@@ -1,5 +1,5 @@
 import React from "react";
-import { OnlineDiyetDetail } from "@/components/Detail/Detail";
+import { OnlineDiyetDetail } from "@/components/(front)/Detail/Detail";
 import { metaOnlineDiyet } from "@/meta";
 import { getGenerals } from "@/utils/getGenerals";
 import { GeneralsTypes } from "@/Types";

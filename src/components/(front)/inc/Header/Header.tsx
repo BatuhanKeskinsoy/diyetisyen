@@ -8,7 +8,8 @@ import NavTopWhatsApp from "./NavTop/WhatsApp";
 import NavTopSocials from "./NavTop/Socials";
 import { GeneralsTypes, SocialsTypes } from "@/Types";
 import NavLinks from "./NavLinks";
-import Loading from "@/components/Other/Loading";
+import Loading from "@/components/Global/Loading";
+import { useGlobalContext } from "@/app/Context/store";
 
 interface IHeaderProps {
   generals: GeneralsTypes;
@@ -17,24 +18,11 @@ interface IHeaderProps {
 
 function Header({ generals, socials }: IHeaderProps) {
   const [navStatus, setNavStatus] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const { isMobile } = useGlobalContext();
 
   const navActive = () => {
     setNavStatus((current) => !current);
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1024);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize, { passive: true }); // Listen for window resize
-
-    return () => {
-      window.removeEventListener("resize", handleResize); // Clean up the listener
-    };
-  }, []);
 
   const phoneSlug = generals?.phone.replace(/\s/g, "");
 

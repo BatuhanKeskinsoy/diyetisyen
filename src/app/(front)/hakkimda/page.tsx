@@ -1,5 +1,5 @@
 import React from "react";
-import About from "@/components/About/About";
+import About from "@/components/(front)/About/About";
 import { metaHakkimda } from "@/meta";
 import { GeneralsTypes, SocialsTypes } from "@/Types";
 import { getGenerals } from "@/utils/getGenerals";

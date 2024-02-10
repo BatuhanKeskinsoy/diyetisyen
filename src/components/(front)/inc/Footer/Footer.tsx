@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import blogsData from "@/data/blogs.json";
 import servicesData from "@/data/services.json";
-import { FooterItem } from "@/components/Blog/Item";
+import { FooterItem } from "@/components/(front)/Blog/Item";
 import { SocialsTypes, GeneralsTypes } from "@/Types";
 import { FooterSocials } from "../Header/Items/SocialItem";
 import calculationsData from "@/data/calculations.json";

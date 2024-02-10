@@ -1,43 +1,39 @@
-import Image from 'next/image'
-import React from 'react'
-import OtherContents from '../OtherContents/OtherContents'
-import OnlineDiyet from '@/components/OnlineDiyet/OnlineDiyet'
 import { GeneralsTypes } from '@/Types';
-import Link from 'next/link';
-import { AiOutlineDoubleRight } from 'react-icons/ai';
+import React from 'react'
 import { BlogShares } from '../Shares/Shares';
+import Link from 'next/link';
+import Image from 'next/image';
+import { AiOutlineDoubleRight } from 'react-icons/ai';
+import OtherContents from '../OtherContents/OtherContents';
+import OnlineDiyet from '@/components/(front)/OnlineDiyet/OnlineDiyet';
 
-interface ServiceDetailContentProps {
+interface CalculateDetailContentProps {
   generals: GeneralsTypes;
   props: any;
 }
-function ServiceDetailContent({ props, generals }: ServiceDetailContentProps) {
+function CalculateDetailContent({ props, generals }: CalculateDetailContentProps) {
   return (
     <section className="relative">
       <div className="container mx-auto py-12 px-4 lg:px-0">
         <div className="flex lg:flex-row flex-col gap-x-8 lg:mt-6">
           <div className="flex-[1_1_75%]">
-            <div className="relative lg:h-[600px] h-48">
-              <Image
-                src={props.image}
-                sizes="(max-width: 768px) 100vw, 80vw"
-                fill
-                priority={true}
-                alt={props.title}
-                title={props.title}
-                className="object-cover object-center rounded-xl shadow-2xl shadow-black/10"
-              />
-            </div>
-
-            <h1 className="lg:text-3xl text-2xl mt-12 mb-4 font-semibold">
+            <h1 className="text-3xl lg:text-5xl font-dancing tracking-wide">
               {props.title}
             </h1>
+
+            {props.calculationComponent}
+
+            <hr className="my-4" />
+
             <div
               className="DetailContent"
               dangerouslySetInnerHTML={{ __html: props.contentText }}
             ></div>
-
-            <hr className="my-4" />
+            <div className="bg-site text-white p-3 opacity-80 my-6">
+              Not: Bu hesaplama sadece genel bir fikir verir ve kişisel
+              ihtiyaçlarınızı tam olarak yansıtmayabilir. Sağlıklı bir kilo
+              hedefi belirlemek için <strong>bana</strong> ulaşabilirsiniz.
+            </div>
 
             <BlogShares
               title={props.title}
@@ -64,7 +60,7 @@ function ServiceDetailContent({ props, generals }: ServiceDetailContentProps) {
               </div>
               <Image
                 src={"/profile/picture1.png"}
-                sizes="(max-width: 768px) 100vw, 30vw"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 fill
                 loading="lazy"
                 alt={generals ? generals.fullName : ""}
@@ -86,4 +82,4 @@ function ServiceDetailContent({ props, generals }: ServiceDetailContentProps) {
   )
 }
 
-export default ServiceDetailContent
+export default CalculateDetailContent

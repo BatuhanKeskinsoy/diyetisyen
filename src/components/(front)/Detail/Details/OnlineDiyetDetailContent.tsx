@@ -6,7 +6,7 @@ import React from "react";
 import { OnlineDiyetShares } from "../Shares/Shares";
 import { AiOutlineDoubleRight } from "react-icons/ai";
 import OtherContentsItem from "../OtherContents/Item";
-import OnlineDiyet from "@/components/OnlineDiyet/OnlineDiyet";
+import OnlineDiyet from "@/components/(front)/OnlineDiyet/OnlineDiyet";
 import blogsData from "@/data/blogs.json"
 
 interface OnlineDiyetDetaiLContentProps {

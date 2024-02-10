@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import galleryPhotosData from "@/data/galleryPhotos.json";
-import Item from "@/components/Gallery/Item";
+import Item from "@/components/(front)/Gallery/Item";
 import servicesData from "@/data/services.json";
 import Lightbox from "react-awesome-lightbox";
 import "react-awesome-lightbox/build/style.css";

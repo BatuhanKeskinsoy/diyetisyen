@@ -1,6 +1,6 @@
 import React from "react";
 import blogsData from "@/data/blogs.json";
-import { BlogDetail } from "@/components/Detail/Detail";
+import { BlogDetail } from "@/components/(front)/Detail/Detail";
 import { Metadata } from "next";
 import { metaBlogDetay } from "@/meta";
 

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { GeneralsTypes, SocialsTypes } from "@/Types";
-import { ContactSocials } from "../inc/Header/Items/SocialItem";
+import { ContactSocials } from "@/components/(front)/inc/Header/Items/SocialItem";
 import { BsEnvelopeAt, BsSignpost2, BsTelephoneInbound } from "react-icons/bs";
 
 interface IContactProps {

@@ -1,6 +1,6 @@
 import React from 'react'
 import servicesData from '@/data/services.json'
-import { ServiceDetail } from '@/components/Detail/Detail'
+import { ServiceDetail } from '@/components/(front)/Detail/Detail'
 import { Metadata } from 'next';
 import { metaHizmetlerimizDetay } from '@/meta';
 

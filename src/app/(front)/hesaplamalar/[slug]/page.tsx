@@ -1,9 +1,9 @@
 import React from "react";
 import calculationsData from "@/data/calculations.json";
-import { CalculateDetail } from "@/components/Detail/Detail";
-import IdealKiloHesaplama from "@/components/Calculations/IdealKiloHesaplama";
-import VucutKitleIndeksiHesaplama from "@/components/Calculations/VucutKitleIndeksiHesaplama";
-import BazalMetabolizmaHiziHesaplama from "@/components/Calculations/BazalMetabolizmaHiziHesaplama";
+import { CalculateDetail } from "@/components/(front)/Detail/Detail";
+import IdealKiloHesaplama from "@/components/(front)/Calculations/IdealKiloHesaplama";
+import VucutKitleIndeksiHesaplama from "@/components/(front)/Calculations/VucutKitleIndeksiHesaplama";
+import BazalMetabolizmaHiziHesaplama from "@/components/(front)/Calculations/BazalMetabolizmaHiziHesaplama";
 import { Metadata } from "next";
 import { metaHesaplamalarDetay } from "@/meta";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { SocialsItem } from "@/components/inc/Header/Items/SocialItem";
+import { SocialsItem } from "@/components/(front)/inc/Header/Items/SocialItem";
 import { getSocials } from "@/utils/getSocials";
 import { SocialsTypes } from "@/Types";
 

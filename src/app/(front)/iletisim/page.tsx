@@ -1,5 +1,5 @@
 import React from "react";
-import Contact from "@/components/Contact/Contact";
+import Contact from "@/components/(front)/Contact/Contact";
 import { metaIletisim } from "@/meta";
 import { getSocials } from "@/utils/getSocials";
 import { getGenerals } from "@/utils/getGenerals";

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { SocialsTypes, GeneralsTypes } from "@/Types";
-import { AboutSocials } from "@/components/inc/Header/Items/SocialItem";
+import { AboutSocials } from "@/components/(front)/inc/Header/Items/SocialItem";
 import Link from "next/link";
 
 interface IAboutProps {

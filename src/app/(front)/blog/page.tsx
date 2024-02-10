@@ -1,5 +1,5 @@
 import React from "react";
-import Blog from "@/components/Blog/Blog";
+import Blog from "@/components/(front)/Blog/Blog";
 import { metaBlog } from "@/meta";
 
 export const metadata = metaBlog();
