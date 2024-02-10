@@ -10,8 +10,8 @@ export const metadata = meta404();
 async function notFound() {
   const generals: GeneralsTypes = await getGenerals();
   return (
-    <>
-      <section className="container mx-auto px-4 flex flex-col justify-between items-center h-[calc(100vh-136px)] mt-8 lg:mt-0">
+    <section className="bg-site/10">
+      <div className="container mx-auto px-4 flex flex-col justify-between items-center h-[100dvh]">
         <div className="flex lg:flex-row flex-col items-center h-full justify-center gap-6">
           <div className="flex flex-col gap-y-10 lg:order-1 order-2">
             <Link
@@ -55,8 +55,8 @@ async function notFound() {
             className="lg:order-2 order-1"
           />
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 

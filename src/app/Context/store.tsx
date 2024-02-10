@@ -31,6 +31,11 @@ export const GlobalContextProvider = ({ children }: any) => {
     handleResize();
     window.addEventListener("resize", handleResize, { passive: true });
 
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+
     return () => {
       window.removeEventListener("resize", handleResize);
       setLoading(false);

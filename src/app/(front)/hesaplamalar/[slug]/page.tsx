@@ -6,6 +6,7 @@ import VucutKitleIndeksiHesaplama from "@/components/(front)/Calculations/VucutK
 import BazalMetabolizmaHiziHesaplama from "@/components/(front)/Calculations/BazalMetabolizmaHiziHesaplama";
 import { Metadata } from "next";
 import { metaHesaplamalarDetay } from "@/meta";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: { slug: string };
@@ -14,9 +15,14 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
 
-  const calculation: any = calculationsData.find((calculation) => calculation.url === slug);
-
-  return metaHesaplamalarDetay(calculation, slug);
+  const calculation: any = calculationsData.find(
+    (calculation) => calculation.url === slug
+  );
+  if (calculation) {
+    return metaHesaplamalarDetay(calculation, slug);
+  } else {
+    notFound();
+  }
 }
 
 function Page({ params }: { params: { slug: string } }) {
@@ -30,9 +36,7 @@ function Page({ params }: { params: { slug: string } }) {
     );
 
     if (!metaFilteredCalculations) {
-      return {
-        notFound: true,
-      };
+      notFound();
     }
   }
 
@@ -60,23 +64,23 @@ function Page({ params }: { params: { slug: string } }) {
   }
 
   return (
-      <CalculateDetail
-        title={filteredCalculations.title}
-        image={filteredCalculations.image}
-        contentText={filteredCalculations.contentText}
-        description={filteredCalculations.description}
-        tags={filteredCalculations.tags}
-        url={filteredCalculations.url}
-        showAllUrl={"/blog"}
-        calculationComponent={
-          CalculationComponent ? (
-            <CalculationComponent
-              image={filteredCalculations.image}
-              title={filteredCalculations.title}
-            />
-          ) : null
-        }
-      />
+    <CalculateDetail
+      title={filteredCalculations.title}
+      image={filteredCalculations.image}
+      contentText={filteredCalculations.contentText}
+      description={filteredCalculations.description}
+      tags={filteredCalculations.tags}
+      url={filteredCalculations.url}
+      showAllUrl={"/blog"}
+      calculationComponent={
+        CalculationComponent ? (
+          <CalculationComponent
+            image={filteredCalculations.image}
+            title={filteredCalculations.title}
+          />
+        ) : null
+      }
+    />
   );
 }
 

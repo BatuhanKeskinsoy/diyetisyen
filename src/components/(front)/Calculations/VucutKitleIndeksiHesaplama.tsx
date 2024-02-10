@@ -75,7 +75,7 @@ function VKIHesaplama({image, title} : VucutKitleIndeksiHesaplamaProps) {
         src={image}
         sizes='(max-width: 768px) 100vw, 50vw'
         fill
-        priority={true}
+        priority
         alt={title}
         title={title}
         className='object-cover object-center -z-20 blur-sm' />

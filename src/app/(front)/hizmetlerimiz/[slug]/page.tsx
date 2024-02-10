@@ -1,8 +1,9 @@
-import React from 'react'
-import servicesData from '@/data/services.json'
-import { ServiceDetail } from '@/components/(front)/Detail/Detail'
-import { Metadata } from 'next';
-import { metaHizmetlerimizDetay } from '@/meta';
+import React from "react";
+import servicesData from "@/data/services.json";
+import { ServiceDetail } from "@/components/(front)/Detail/Detail";
+import { Metadata } from "next";
+import { metaHizmetlerimizDetay } from "@/meta";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: { slug: string };
@@ -11,9 +12,13 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
 
-  const calculation: any = servicesData.find((service) => service.url === slug);
+  const service: any = servicesData.find((service) => service.url === slug);
 
-  return metaHizmetlerimizDetay(calculation, slug);
+  if (service) {
+    return metaHizmetlerimizDetay(service, slug);
+  } else {
+    notFound();
+  }
 }
 
 function Page({ params }: { params: { slug: string } }) {
@@ -22,32 +27,32 @@ function Page({ params }: { params: { slug: string } }) {
   let metaFilteredServices = null;
 
   if (slug) {
-    metaFilteredServices = servicesData.find(service => service.url === slug);
+    metaFilteredServices = servicesData.find((service) => service.url === slug);
 
     if (!metaFilteredServices) {
-      return {
-        notFound: true,
-      };
+      notFound();
     }
   }
 
-  const filteredServices = slug ? servicesData.find(service => service.url === slug) : null
+  const filteredServices = slug
+    ? servicesData.find((service) => service.url === slug)
+    : null;
 
   if (!filteredServices) {
     return null;
   }
 
   return (
-      <ServiceDetail
-        title={filteredServices.title}
-        image={filteredServices.image}
-        contentText={filteredServices.contentText}
-        description={filteredServices.description}
-        tags={filteredServices.tags}
-        url={filteredServices.url}
-        showAllUrl={'/blog'}
-      />
-  )
+    <ServiceDetail
+      title={filteredServices.title}
+      image={filteredServices.image}
+      contentText={filteredServices.contentText}
+      description={filteredServices.description}
+      tags={filteredServices.tags}
+      url={filteredServices.url}
+      showAllUrl={"/blog"}
+    />
+  );
 }
 
-export default Page
+export default Page;

@@ -64,7 +64,7 @@ async function About({ botTransparent, generals, socials }: IAboutProps) {
             >
               Online Diyet
             </Link>{" "}
-            hizmeti de vermekteyim. Online diyet ücretleri ve diyetiyetisyen
+            hizmeti de vermekteyim. Online diyet ücretleri ve diyetisyen
             ücretleri hakkında daha fazla bilgi edinmek için bana
             <Link
               href={`https://api.whatsapp.com/send?phone=+9${phoneSlug}&text=${generals?.wpMessage}`}

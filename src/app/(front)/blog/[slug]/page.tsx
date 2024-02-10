@@ -3,18 +3,22 @@ import blogsData from "@/data/blogs.json";
 import { BlogDetail } from "@/components/(front)/Detail/Detail";
 import { Metadata } from "next";
 import { metaBlogDetay } from "@/meta";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: { slug: string };
 };
-
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
 
   const blog: any = blogsData.find((blog) => blog.url === slug);
 
-  return metaBlogDetay(blog, slug);
+  if (blog) {
+    return metaBlogDetay(blog, slug);
+  } else {
+    notFound();
+  }
 }
 
 function Page({ params }: { params: { slug: string } }) {
@@ -26,9 +30,7 @@ function Page({ params }: { params: { slug: string } }) {
     metaFilteredBlogs = blogsData.find((blog) => blog.url === slug);
 
     if (!metaFilteredBlogs) {
-      return {
-        notFound: true,
-      };
+      notFound();
     }
   }
 
