@@ -116,7 +116,7 @@ function LoginForm() {
                 )}
               </div>
               <p
-                className={`text-sm font-semibold select-none group-hover:text-site transition-all tracking-wide ${
+                className={`text-sm font-semibold select-none lg:group-hover:text-site transition-all tracking-wide ${
                   rememberMe ? "text-site" : "text-[#002a4f]"
                 } `}
               >
