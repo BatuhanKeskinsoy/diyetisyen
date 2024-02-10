@@ -36,9 +36,9 @@ export const GlobalContextProvider = ({ children }: any) => {
       behavior: "instant",
     });
 
+    setLoading(false);
     return () => {
       window.removeEventListener("resize", handleResize);
-      setLoading(false);
     };
   }, []);
 
