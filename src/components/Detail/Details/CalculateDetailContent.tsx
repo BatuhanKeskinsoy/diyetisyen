@@ -77,7 +77,7 @@ function CalculateDetailContent({ props, generals }: CalculateDetailContentProps
           </div>
         </div>
       </div>
-      <OnlineDiyet />
+      <OnlineDiyet generals={generals} />
     </section>
   )
 }

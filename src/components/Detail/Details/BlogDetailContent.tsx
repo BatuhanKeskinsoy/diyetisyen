@@ -127,7 +127,7 @@ function BlogDetailContent({ props, generals }: BlogDetailContentProps) {
           </div>
         </div>
       </div>
-      <OnlineDiyet />
+      <OnlineDiyet generals={generals} />
     </section>
   );
 }

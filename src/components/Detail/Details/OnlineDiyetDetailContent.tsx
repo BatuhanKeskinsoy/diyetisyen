@@ -276,7 +276,7 @@ function OnlineDiyetDetailContent({ props, generals }: OnlineDiyetDetaiLContentP
           </div>
         </div>
       </div>
-      <OnlineDiyet />
+      <OnlineDiyet generals={generals} />
     </section>
   );
 }

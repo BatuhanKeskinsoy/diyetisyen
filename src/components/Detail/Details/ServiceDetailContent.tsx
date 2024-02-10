@@ -81,7 +81,7 @@ function ServiceDetailContent({ props, generals }: ServiceDetailContentProps) {
           </div>
         </div>
       </div>
-      <OnlineDiyet />
+      <OnlineDiyet generals={generals} />
     </section>
   )
 }
