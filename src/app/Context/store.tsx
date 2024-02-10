@@ -5,7 +5,7 @@ import React, {
   Dispatch,
   SetStateAction,
   useState,
-  useEffect,
+  useLayoutEffect,
 } from "react";
 import Loading from "@/components/Global/Loading";
 
@@ -23,7 +23,7 @@ export const GlobalContextProvider = ({ children }: any) => {
   const [isMobile, setIsMobile] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1024);
     };
@@ -36,9 +36,9 @@ export const GlobalContextProvider = ({ children }: any) => {
       behavior: "instant",
     });
 
-    setLoading(false);
     return () => {
       window.removeEventListener("resize", handleResize);
+      setLoading(false);
     };
   }, []);
 
