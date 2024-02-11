@@ -7,15 +7,22 @@ type ItemProps = {
   description: string;
   image: string;
   url: string;
-  date?: string;
+  created_at: Date;
+  isRecipe: boolean;
   pathnameBlog?: string;
-  isRecipe?: boolean;
   forHome?: boolean;
-}
+};
 
-function Item({title, image, url, date, pathnameBlog, isRecipe, description, forHome} : ItemProps) {
-  const dateStr = date;
-
+function Item({
+  title,
+  image,
+  url,
+  created_at,
+  pathnameBlog,
+  isRecipe,
+  description,
+  forHome,
+}: ItemProps) {
   const months = [
     "Ocak",
     "Şubat",
@@ -31,12 +38,12 @@ function Item({title, image, url, date, pathnameBlog, isRecipe, description, for
     "Aralık",
   ];
 
-  const parts = dateStr ? dateStr.split("-") : ''; // "-" karakterine göre tarihi ayır
-
-  const day = parts[0];
-  const monthIndex = parseInt(parts[1]) - 1; // Ay indeksleri 0'dan başladığı için 1 çıkarıyoruz
+  const date = new Date(created_at);
+  const day = ("0" + date.getDate()).slice(-2);
+  const monthIndex = date.getMonth();
   const month = months[monthIndex];
-  const year = parts[2];
+  const year = date.getFullYear();
+
   return (
     <div className="relative w-full lg:w-1/3 xl:w-1/4 lg:p-3">
       <Link
@@ -56,7 +63,7 @@ function Item({title, image, url, date, pathnameBlog, isRecipe, description, for
           />
 
           <time
-            dateTime={date}
+            dateTime={date.toISOString()}
             className="absolute bg-white/70 py-0.5 px-1.5 text-xs font-bold text-black top-2.5 right-2.5 flex flex-col items-center rounded-xl"
           >
             <span className="text-3xl">{day}</span>
@@ -93,7 +100,7 @@ function Item({title, image, url, date, pathnameBlog, isRecipe, description, for
   );
 }
 
-function FooterItem({title, image, url} : ItemProps) {
+function FooterItem({ title, image, url }: ItemProps) {
   return (
     <li>
       <Link

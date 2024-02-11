@@ -159,9 +159,9 @@ function Footer({socials, generals} : IFooterProps) {
             <div className="md:my-0 my-1">
               Copyright <span className="font-system">©</span>
               <span className="text-site ml-1 transition-all">
-                {new Date().getFullYear() === 2023
+                {new Date().getFullYear() === 2024
                   ? new Date().getFullYear()
-                  : "2023 - " + new Date().getFullYear()}
+                  : "2024 - " + new Date().getFullYear()}
               </span>
             </div>
             <div className="md:my-0 my-1">

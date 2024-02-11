@@ -4,6 +4,8 @@ import { ServiceDetail } from "@/components/(front)/Detail/Detail";
 import { Metadata } from "next";
 import { metaHizmetlerimizDetay } from "@/meta";
 import { notFound } from "next/navigation";
+import { getGenerals } from "@/utils/getGenerals";
+import { GeneralsTypes } from "@/Types";
 
 type Props = {
   params: { slug: string };
@@ -21,7 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-function Page({ params }: { params: { slug: string } }) {
+async function Page({ params }: { params: { slug: string } }) {
+  const generals: GeneralsTypes = await getGenerals();
   const slug = params.slug;
 
   let metaFilteredServices = null;
@@ -51,6 +54,7 @@ function Page({ params }: { params: { slug: string } }) {
       tags={filteredServices.tags}
       url={filteredServices.url}
       showAllUrl={"/blog"}
+      generals={generals}
     />
   );
 }

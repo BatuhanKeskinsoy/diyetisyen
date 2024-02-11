@@ -7,6 +7,8 @@ import BazalMetabolizmaHiziHesaplama from "@/components/(front)/Calculations/Baz
 import { Metadata } from "next";
 import { metaHesaplamalarDetay } from "@/meta";
 import { notFound } from "next/navigation";
+import { getGenerals } from "@/utils/getGenerals";
+import { GeneralsTypes } from "@/Types";
 
 type Props = {
   params: { slug: string };
@@ -25,7 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-function Page({ params }: { params: { slug: string } }) {
+async function Page({ params }: { params: { slug: string } }) {
+  const generals: GeneralsTypes = await getGenerals();
   const slug = params.slug;
 
   let metaFilteredCalculations = null;
@@ -80,6 +83,7 @@ function Page({ params }: { params: { slug: string } }) {
           />
         ) : null
       }
+      generals={generals}
     />
   );
 }

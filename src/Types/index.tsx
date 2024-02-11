@@ -36,3 +36,17 @@ export type BannersTypes = {
   btnText: string;
   btnUrl: string;
 }
+
+// BLOGS
+
+export type BlogsTypes = {
+  id: number;
+  title: string;
+  description: string;
+  contentText: string;
+  image: string;
+  tags: string[];
+  url: string;
+  isRecipe: boolean;
+  created_at: Date;
+}

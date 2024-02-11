@@ -1,5 +1,5 @@
-"use client"
-import { GeneralsTypes } from "@/Types";
+"use client";
+import { BlogsTypes, GeneralsTypes } from "@/Types";
 import Image from "next/image";
 import React from "react";
 import { BlogShares } from "../Shares/Shares";
@@ -9,13 +9,12 @@ import OtherContents from "../OtherContents/OtherContents";
 import OnlineDiyet from "@/components/(front)/OnlineDiyet/OnlineDiyet";
 
 interface BlogDetailContentProps {
+  showAllUrl: string;
   generals: GeneralsTypes;
-  props: any;
+  blog: BlogsTypes;
 }
 
-function BlogDetailContent({ props, generals }: BlogDetailContentProps) {
-  const dateStr = props.date;
-
+function BlogDetailContent({ showAllUrl, generals, blog }: BlogDetailContentProps) {
   const months = [
     "Ocak",
     "Şubat",
@@ -31,19 +30,19 @@ function BlogDetailContent({ props, generals }: BlogDetailContentProps) {
     "Aralık",
   ];
 
-  const parts = dateStr.split("-"); // "-" karakterine göre tarihi ayır
 
-  const day = parts[0];
-  const monthIndex = parseInt(parts[1]) - 1; // Ay indeksleri 0'dan başladığı için 1 çıkarıyoruz
+  const date = new Date(blog.created_at);
+  const day = ("0" + date.getDate()).slice(-2);
+  const monthIndex = date.getMonth();
   const month = months[monthIndex];
-  const year = parts[2];
+  const year = date.getFullYear();
   return (
     <section className="relative">
       <div className="container mx-auto py-12 px-4 lg:px-0">
         <div className="flex lg:flex-row flex-col gap-x-8 lg:mt-6">
           <div className="flex-[1_1_75%]">
             <div className="relative lg:h-[600px] h-48">
-              {props.isRecipe && (
+              {blog.isRecipe && (
                 <div className='absolute -left-5 lg:top-5 top-3 right-auto rounded-xl rounded-bl-none lg:py-3 py-1 lg:px-6 px-4 bg-site text-white z-10 before:content-[""] before:absolute before:w-5 before:h-5 before:-bottom-5 before:left-0 before:bg-site/90 before:opacity-50 before:clip-your-needful-style'>
                   <span className="lg:text-2xl text-xl font-gemunu tracking-wider">
                     TARİF
@@ -51,16 +50,16 @@ function BlogDetailContent({ props, generals }: BlogDetailContentProps) {
                 </div>
               )}
               <Image
-                src={props.image}
+                src={blog.image}
                 sizes="(max-width: 768px) 100vw, 80vw"
                 fill
                 priority={true}
-                alt={props.title}
-                title={props.title}
+                alt={blog.title}
+                title={blog.title}
                 className="object-cover object-center rounded-xl shadow-2xl shadow-black/10"
               />
               <time
-                dateTime={props.date}
+                dateTime={date?.toISOString()}
                 className="absolute bg-white/70 py-1 px-2 text-xs font-bold text-black lg:top-4 top-2 lg:right-4 right-2 flex flex-col items-center rounded-xl"
               >
                 <span className="lg:text-4xl text-3xl">{day}</span>
@@ -72,11 +71,11 @@ function BlogDetailContent({ props, generals }: BlogDetailContentProps) {
             </div>
 
             <h1 className="lg:text-3xl text-2xl mt-12 mb-4 font-semibold">
-              {props.title}
+              {blog.title}
             </h1>
             <div
               className="DetailContent"
-              dangerouslySetInnerHTML={{ __html: props.contentText }}
+              dangerouslySetInnerHTML={{ __html: blog.contentText }}
             ></div>
             <div className="bg-site text-white p-3 opacity-80 my-6">
               Not: Bu makale yalnızca genel bilgilendirme amacı taşımaktadır.
@@ -86,9 +85,9 @@ function BlogDetailContent({ props, generals }: BlogDetailContentProps) {
             <hr className="my-4" />
 
             <BlogShares
-              title={props.title}
-              description={props.description}
-              tags={props.tags}
+              title={blog.title}
+              description={blog.description}
+              tags={blog.tags}
             />
           </div>
           <div className="flex-[1_1_25%] lg:mt-0 mt-6">
@@ -120,9 +119,9 @@ function BlogDetailContent({ props, generals }: BlogDetailContentProps) {
             </Link>
 
             <OtherContents
-              title={props.title}
-              tags={props.tags}
-              showAllUrl={props.showAllUrl}
+              title={blog.title}
+              tags={blog.tags}
+              showAllUrl={showAllUrl}
             />
           </div>
         </div>

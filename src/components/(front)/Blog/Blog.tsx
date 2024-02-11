@@ -1,18 +1,19 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Item } from "./Item";
-import blogsData from "@/data/blogs.json";
 import Link from "next/link";
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 import { usePathname } from "next/navigation";
+import { BlogsTypes } from "@/Types";
 
 interface BlogProps {
+  blogs: BlogsTypes[];
   botTransparent?: boolean;
   topTransparent?: boolean;
   forHome?: boolean;
 }
 
-function Blog({ botTransparent, topTransparent, forHome }: BlogProps) {
+function Blog({ blogs, botTransparent, topTransparent, forHome }: BlogProps) {
   const pathname = usePathname();
 
   const PAGE_SIZE_MOBILE = 6;
@@ -22,10 +23,10 @@ function Blog({ botTransparent, topTransparent, forHome }: BlogProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [isRecipe, setIsRecipe] = useState(false);
   const [recipeCount, setRecipeCount] = useState(0);
-  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [filteredBlogs, setFilteredBlogs] = useState<BlogsTypes[]>(blogs);
 
   const countTotalRecipes = () => {
-    return blogsData.filter((blogItem) => blogItem.isRecipe).length;
+    return blogs.filter((blogItem) => blogItem.isRecipe).length;
   };
 
   const recipeActive = () => {
@@ -37,8 +38,12 @@ function Blog({ botTransparent, topTransparent, forHome }: BlogProps) {
   }, []);
 
   useEffect(() => {
-    const filterBlogs: any = blogsData
-      .sort((a, b) => b.id - a.id)
+    const filterBlogs = blogs
+      .sort((a, b) => {
+        const dateA = new Date(a.created_at);
+        const dateB = new Date(b.created_at);
+        return dateB.getTime() - dateA.getTime();
+      }) // En yeni tarihler en başta olacak şekilde sıralama
       .filter((blogItem) => (isRecipe ? blogItem.isRecipe : true))
       .filter((blogItem) => {
         const lowercaseTitle = blogItem.title.toLocaleLowerCase("tr-TR");
@@ -49,7 +54,7 @@ function Blog({ botTransparent, topTransparent, forHome }: BlogProps) {
       });
 
     setFilteredBlogs(filterBlogs);
-    setCurrentPage(1); // Filtreler değiştiğinde sayfayı sıfırla
+    setCurrentPage(1);
   }, [searchTerm, isRecipe]);
 
   // Sayfa boyutuna göre PAGE_SIZE belirleme
@@ -76,9 +81,8 @@ function Blog({ botTransparent, topTransparent, forHome }: BlogProps) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleInputChange = (e: any) => {
-    const value = e.target.value;
-    setSearchTerm(value);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -118,27 +122,29 @@ function Blog({ botTransparent, topTransparent, forHome }: BlogProps) {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-y-4">
-          {paginatedBlogs.length > 0 ? (
-            paginatedBlogs.map((blogItem: any, key) => (
-              <Item
-                title={blogItem.title}
-                description={blogItem.description}
-                image={blogItem.image}
-                url={blogItem.url}
-                date={blogItem.date}
-                isRecipe={blogItem.isRecipe}
-                forHome={forHome}
-                pathnameBlog={pathname}
-                key={key}
-              />
-            ))
-          ) : (
-            <div className="font-gemunu tracking-wider text-4xl h-96 flex justify-center items-center text-center w-full">
-              Blog Bulunamadı...
-            </div>
-          )}
-        </div>
+        {paginatedBlogs.length > 0 ? (
+          <div className="flex flex-wrap gap-y-4">
+            {paginatedBlogs.map((blogItem: any, key) => {
+              return (
+                <Item
+                  title={blogItem.title}
+                  description={blogItem.description}
+                  image={blogItem.image}
+                  url={blogItem.url}
+                  created_at={blogItem.created_at}
+                  isRecipe={blogItem.isRecipe}
+                  forHome={forHome}
+                  pathnameBlog={pathname}
+                  key={key}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <div className="font-gemunu tracking-wider text-4xl h-96 flex justify-center items-center text-center w-full">
+            Blog Bulunamadı...
+          </div>
+        )}
 
         {forHome && (
           <Link

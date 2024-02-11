@@ -1,18 +1,21 @@
 import React from "react";
-import blogsData from "@/data/blogs.json";
 import { BlogDetail } from "@/components/(front)/Detail/Detail";
 import { Metadata } from "next";
 import { metaBlogDetay } from "@/meta";
 import { notFound } from "next/navigation";
+import { BlogsTypes, GeneralsTypes } from "@/Types";
+import { getBlogs } from "@/utils/Blog/getBlogs";
+import { getGenerals } from "@/utils/getGenerals";
 
 type Props = {
   params: { slug: string };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const blogs: BlogsTypes[] = (await getBlogs()) || [];
   const slug = params.slug;
 
-  const blog: any = blogsData.find((blog) => blog.url === slug);
+  const blog: any = blogs.find((blog) => blog.url === slug);
 
   if (blog) {
     return metaBlogDetay(blog, slug);
@@ -21,39 +24,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-function Page({ params }: { params: { slug: string } }) {
+async function Page({ params }: { params: { slug: string } }) {
+  const generals: GeneralsTypes = await getGenerals();
+  const blogs: BlogsTypes[] = (await getBlogs()) || [];
   const slug = params.slug;
 
   let metaFilteredBlogs = null;
 
   if (slug) {
-    metaFilteredBlogs = blogsData.find((blog) => blog.url === slug);
+    metaFilteredBlogs = blogs.find((blog) => blog.url === slug);
 
     if (!metaFilteredBlogs) {
       notFound();
     }
   }
 
-  const filteredBlogs = slug
-    ? blogsData.find((blog) => blog.url === slug)
-    : null;
+  const filteredBlog = slug ? blogs.find((blog) => blog.url === slug) : null;
 
-  if (!filteredBlogs) {
+  if (!filteredBlog) {
     return null;
   }
 
   return (
-    <BlogDetail
-      title={filteredBlogs.title}
-      image={filteredBlogs.image}
-      contentText={filteredBlogs.contentText}
-      description={filteredBlogs.description}
-      tags={filteredBlogs.tags}
-      url={filteredBlogs.url}
-      date={filteredBlogs.date}
-      isRecipe={filteredBlogs.isRecipe}
-      showAllUrl={"/blog"}
-    />
+    <BlogDetail blog={filteredBlog} showAllUrl="/blog" generals={generals} />
   );
 }
 
