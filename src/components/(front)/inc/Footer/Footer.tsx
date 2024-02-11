@@ -1,21 +1,26 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import blogsData from "@/data/blogs.json";
 import servicesData from "@/data/services.json";
 import { FooterItem } from "@/components/(front)/Blog/Item";
-import { SocialsTypes, GeneralsTypes } from "@/Types";
+import { SocialsTypes, GeneralsTypes, BlogsTypes } from "@/Types";
 import { FooterSocials } from "../Header/Items/SocialItem";
 import calculationsData from "@/data/calculations.json";
 
 interface IFooterProps {
   socials: SocialsTypes[];
   generals: GeneralsTypes;
+  blogs: BlogsTypes[];
 }
 
-function Footer({socials, generals} : IFooterProps) {
-
-  const filteredBlogs = blogsData.sort((a, b) => b.id - a.id).slice(0, 3);
+function Footer({ socials, generals, blogs }: IFooterProps) {
+  const filteredBlogs = blogs
+    .sort((a, b) => {
+      const dateA = new Date(a.created_at);
+      const dateB = new Date(b.created_at);
+      return dateB.getTime() - dateA.getTime();
+    })
+    .slice(0, 3);
 
   return (
     <footer className="relative z-10">
@@ -137,10 +142,8 @@ function Footer({socials, generals} : IFooterProps) {
                 filteredBlogs.map((blogItem, key) => (
                   <FooterItem
                     title={blogItem.title}
-                    description={blogItem.description}
                     image={blogItem.image}
                     url={blogItem.url}
-                    isRecipe={blogItem.isRecipe}
                     key={key}
                   />
                 ))

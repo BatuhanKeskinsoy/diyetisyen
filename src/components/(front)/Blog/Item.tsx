@@ -100,7 +100,12 @@ function Item({
   );
 }
 
-function FooterItem({ title, image, url }: ItemProps) {
+type FooterItemProps = {
+  title: string;
+  image: string;
+  url: string;
+};
+function FooterItem({ title, image, url }: FooterItemProps) {
   return (
     <li>
       <Link

@@ -46,7 +46,7 @@ async function Page({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <BlogDetail blog={filteredBlog} showAllUrl="/blog" generals={generals} />
+    <BlogDetail blog={filteredBlog} generals={generals} />
   );
 }
 

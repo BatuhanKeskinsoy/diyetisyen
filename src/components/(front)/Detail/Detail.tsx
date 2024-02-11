@@ -13,12 +13,12 @@ async function ServiceDetail(props: any, generals: GeneralsTypes) {
   return <ServiceDetailContent props={props} generals={generals} />;
 }
 
-async function BlogDetail({ showAllUrl, generals, blog }: { showAllUrl: string; generals: GeneralsTypes; blog: BlogsTypes }) {
-  return <BlogDetailContent showAllUrl={showAllUrl} generals={generals} blog={blog} />;
+async function BlogDetail({ generals, blog }: { generals: GeneralsTypes; blog: BlogsTypes }) {
+  return <BlogDetailContent generals={generals} blog={blog} />;
 }
 
-function OnlineDiyetDetail(props: any, generals: GeneralsTypes) {
-  return <OnlineDiyetDetailContent props={props} generals={generals} />;
+function OnlineDiyetDetail({ generals }: { generals: GeneralsTypes }) {
+  return <OnlineDiyetDetailContent generals={generals} />;
 }
 
 export { BlogDetail, OnlineDiyetDetail, ServiceDetail, CalculateDetail };

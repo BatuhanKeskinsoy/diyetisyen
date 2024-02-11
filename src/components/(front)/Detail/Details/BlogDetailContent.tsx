@@ -9,12 +9,11 @@ import OtherContents from "../OtherContents/OtherContents";
 import OnlineDiyet from "@/components/(front)/OnlineDiyet/OnlineDiyet";
 
 interface BlogDetailContentProps {
-  showAllUrl: string;
   generals: GeneralsTypes;
   blog: BlogsTypes;
 }
 
-function BlogDetailContent({ showAllUrl, generals, blog }: BlogDetailContentProps) {
+function BlogDetailContent({ generals, blog }: BlogDetailContentProps) {
   const months = [
     "Ocak",
     "Şubat",
@@ -121,7 +120,6 @@ function BlogDetailContent({ showAllUrl, generals, blog }: BlogDetailContentProp
             <OtherContents
               title={blog.title}
               tags={blog.tags}
-              showAllUrl={showAllUrl}
             />
           </div>
         </div>

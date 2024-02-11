@@ -74,7 +74,6 @@ async function Page({ params }: { params: { slug: string } }) {
       description={filteredCalculations.description}
       tags={filteredCalculations.tags}
       url={filteredCalculations.url}
-      showAllUrl={"/blog"}
       calculationComponent={
         CalculationComponent ? (
           <CalculationComponent

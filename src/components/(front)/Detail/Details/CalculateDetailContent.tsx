@@ -72,7 +72,6 @@ function CalculateDetailContent({ props, generals }: CalculateDetailContentProps
             <OtherContents
               title={props.title}
               tags={props.tags}
-              showAllUrl={props.showAllUrl}
             />
           </div>
         </div>

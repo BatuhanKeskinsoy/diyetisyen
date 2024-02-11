@@ -76,7 +76,6 @@ function ServiceDetailContent({ props, generals }: ServiceDetailContentProps) {
             <OtherContents
               title={props.title}
               tags={props.tags}
-              showAllUrl={props.showAllUrl}
             />
           </div>
         </div>

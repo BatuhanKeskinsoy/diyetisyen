@@ -53,7 +53,6 @@ async function Page({ params }: { params: { slug: string } }) {
       description={filteredServices.description}
       tags={filteredServices.tags}
       url={filteredServices.url}
-      showAllUrl={"/blog"}
       generals={generals}
     />
   );

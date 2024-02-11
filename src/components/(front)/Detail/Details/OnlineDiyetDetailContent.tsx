@@ -1,20 +1,20 @@
-"use client"
+"use client";
 import { GeneralsTypes } from "@/Types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { OnlineDiyetShares } from "../Shares/Shares";
 import { AiOutlineDoubleRight } from "react-icons/ai";
-import OtherContentsItem from "../OtherContents/Item";
 import OnlineDiyet from "@/components/(front)/OnlineDiyet/OnlineDiyet";
-import blogsData from "@/data/blogs.json"
+import OtherContents from "../OtherContents/OtherContents";
 
 interface OnlineDiyetDetaiLContentProps {
   generals: GeneralsTypes;
-  props: any;
 }
 
-function OnlineDiyetDetailContent({ props, generals }: OnlineDiyetDetaiLContentProps) {
+function OnlineDiyetDetailContent({
+  generals,
+}: OnlineDiyetDetaiLContentProps) {
   const title = "Online Diyet";
   const description =
     "Online diyet, sağlıklı bir yaşam tarzı sürdürmek isteyenlere internet üzerinden diyetisyenlik hizmeti sunan bir yöntemdir. Bu hizmet, beslenme planları, diyet önerileri ve kilo kontrolü gibi konularda rehberlik almanızı sağlar.";
@@ -221,58 +221,10 @@ function OnlineDiyetDetailContent({ props, generals }: OnlineDiyetDetaiLContentP
               />
             </Link>
 
-            <div className="gap-y-2 w-full flex flex-col overflow-hidden">
-              <span className="font-dancing tracking-wide text-3xl mt-12 mb-2">
-                Bloglarımız
-              </span>
-              <ul className="w-full flex flex-col">
-                {blogsData.length > 0
-                  ? blogsData
-                      .slice(0, 6)
-                      .map((blogItem, key) => (
-                        <OtherContentsItem
-                          url={`blog/${blogItem.url}`}
-                          image={blogItem.image}
-                          title={blogItem.title}
-                          description={blogItem.description}
-                          key={key}
-                        />
-                      ))
-                  : null}
-              </ul>
-              <Link
-                href={props.showAllUrl}
-                title="Tüm Bloglar"
-                className="py-2 px-4 justify-between text-gray-600 w-full flex items-center hover:bg-site hover:text-white transition-all shadow-md shadow-gray-200 rounded-xl mb-2"
-              >
-                <span className="text-lg font-semibold">Tümünü Göster</span>
-                <AiOutlineDoubleRight size={26} />
-              </Link>
-
-              {tags.length > 0 && (
-                <div className="flex flex-col gap-y-2 items-start">
-                  <span className="font-dancing tracking-wide text-3xl mt-6 mb-2">
-                    Etiketler
-                  </span>
-                  <ul className="tags flex flex-wrap gap-3">
-                    {tags.length > 0
-                      ? tags.slice(0, 6).map((tag, key) => (
-                          <li className="flex gap-x-2 items-center" key={key}>
-                            <span className="text-site text-xl">#</span>
-                            <Link
-                              href={""}
-                              title={tag}
-                              className="text-base text-gray-600 hover:text-black transition-all"
-                            >
-                              {tag}
-                            </Link>
-                          </li>
-                        ))
-                      : null}
-                  </ul>
-                </div>
-              )}
-            </div>
+            <OtherContents
+              title={title}
+              tags={tags}
+            />
           </div>
         </div>
       </div>
